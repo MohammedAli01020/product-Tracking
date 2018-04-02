@@ -3,6 +3,7 @@ package ui;
 import com.sun.org.apache.bcel.internal.generic.DDIV;
 import java.awt.Desktop;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -45,6 +46,14 @@ public class Products extends javax.swing.JFrame {
      */
     public Products() {
         initComponents();
+
+        //searchPanel.setVisible(false);
+        refresh();
+    }
+
+    @Override
+    public void paintComponents(Graphics g) {
+        super.paintComponents(g); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -59,29 +68,30 @@ public class Products extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         btExit = new javax.swing.JButton();
-        productDetailsPanel = new javax.swing.JPanel();
-        tfProductCount = new javax.swing.JTextField();
-        tfProductPrice = new javax.swing.JTextField();
-        tfProductCode = new javax.swing.JTextField();
         tfProductName = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        tfProductCode = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        tfProductPrice = new javax.swing.JTextField();
+        tfProductCount = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        searchPanel = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
         tfSearch = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        jMProducts = new javax.swing.JMenu();
+        jMCashCustomers = new javax.swing.JMenu();
+        jMInstCustomers = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -89,38 +99,14 @@ public class Products extends javax.swing.JFrame {
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("المنتجات");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_add_product.png"))); // NOI18N
-        jButton1.setText("اضافة منتج");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_delete_product.png"))); // NOI18N
-        jButton2.setText("حذف منتج");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_search.png"))); // NOI18N
-        jButton4.setText("البحث");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         table.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         table.setModel(new javax.swing.table.DefaultTableModel(
@@ -131,6 +117,7 @@ public class Products extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6"
             }
         ));
+        table.setGridColor(new java.awt.Color(255, 255, 255));
         table.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableMouseClicked(evt);
@@ -138,8 +125,41 @@ public class Products extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(table);
 
-        btExit.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_back.png"))); // NOI18N
+        jPanel3.setBackground(new java.awt.Color(39, 34, 90));
+
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_sm_delete_product.png"))); // NOI18N
+        jButton2.setText("حذف منتج");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_sm_add_product.png"))); // NOI18N
+        jButton1.setText("اضافة منتج");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_sm_excel.png"))); // NOI18N
+        jButton3.setText("تصدير كملف اكسيل");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        btExit.setBackground(new java.awt.Color(255, 255, 255));
+        btExit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_sm_back.png"))); // NOI18N
         btExit.setText("الغاء");
         btExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,19 +167,17 @@ public class Products extends javax.swing.JFrame {
             }
         });
 
-        productDetailsPanel.setBackground(new java.awt.Color(0, 153, 204));
-        productDetailsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "بيانات المنتج", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(255, 255, 255))); // NOI18N
-        productDetailsPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        tfProductCode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfProductCodeActionPerformed(evt);
+        tfProductName.setColumns(10);
+        tfProductName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tfProductName.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        tfProductName.setToolTipText("ادخل اسم المنتج");
+        tfProductName.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        tfProductName.setName(""); // NOI18N
+        tfProductName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tfProductNameFocusGained(evt);
             }
         });
-
-        tfProductName.setColumns(10);
-        tfProductName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tfProductName.setToolTipText("ادخل اسم المنتج");
         tfProductName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfProductNameActionPerformed(evt);
@@ -179,63 +197,39 @@ public class Products extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("كود المنتج");
 
+        tfProductCode.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tfProductCode.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        tfProductCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfProductCodeActionPerformed(evt);
+            }
+        });
+
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("السعر");
+
+        tfProductPrice.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tfProductPrice.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        tfProductPrice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfProductPriceActionPerformed(evt);
+            }
+        });
+
+        tfProductCount.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tfProductCount.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("الكميه");
 
-        javax.swing.GroupLayout productDetailsPanelLayout = new javax.swing.GroupLayout(productDetailsPanel);
-        productDetailsPanel.setLayout(productDetailsPanelLayout);
-        productDetailsPanelLayout.setHorizontalGroup(
-            productDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(productDetailsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(productDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tfProductCode)
-                    .addComponent(tfProductName)
-                    .addComponent(tfProductCount)
-                    .addComponent(tfProductPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(productDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        productDetailsPanelLayout.setVerticalGroup(
-            productDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(productDetailsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(productDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfProductName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(productDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfProductCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(productDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfProductPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(productDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfProductCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-
-        searchPanel.setBackground(new java.awt.Color(0, 153, 204));
-        searchPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("البحث عن منتج"));
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("اسم المنتج");
-
+        tfSearch.setBackground(new java.awt.Color(39, 34, 90));
         tfSearch.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tfSearch.setForeground(new java.awt.Color(255, 255, 255));
+        tfSearch.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        tfSearch.setBorder(null);
+        tfSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         tfSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfSearchActionPerformed(evt);
@@ -247,81 +241,96 @@ public class Products extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout searchPanelLayout = new javax.swing.GroupLayout(searchPanel);
-        searchPanel.setLayout(searchPanelLayout);
-        searchPanelLayout.setHorizontalGroup(
-            searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(searchPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addContainerGap())
-        );
-        searchPanelLayout.setVerticalGroup(
-            searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(searchPanelLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addContainerGap(26, Short.MAX_VALUE))
-        );
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_search.png"))); // NOI18N
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_excel.png"))); // NOI18N
-        jButton3.setText("تصدير كملف اكسيل");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("المنتجات");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tfProductCount, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btExit, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfProductName, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfProductCode, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(tfProductPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(102, 102, 102)
+                .addComponent(jLabel10)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5)
+                    .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfProductName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfProductCode, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfProductPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfProductCount, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addGap(18, 18, 18)
+                .addComponent(jButton3)
+                .addGap(18, 18, 18)
+                .addComponent(btExit)
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 752, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(searchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(productDetailsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1))
-                    .addComponent(jButton3)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btExit, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(jButton4)))
-                .addContainerGap(31, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 783, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(productDetailsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(searchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(54, 54, 54)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2))
-                        .addGap(36, 36, 36)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btExit))
-                        .addGap(31, 31, 31)
-                        .addComponent(jButton3)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
         );
 
-        jMenu1.setText("Home");
+        jMenu1.setText("الصفحة الرئيسية");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu1MouseClicked(evt);
@@ -329,21 +338,29 @@ public class Products extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Add Product");
-        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMProducts.setText("المنتجات");
+        jMProducts.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu2MouseClicked(evt);
+                jMProductsMouseClicked(evt);
             }
         });
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(jMProducts);
 
-        jMenu3.setText("Add Customer");
-        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMCashCustomers.setText("عملاء الكاش");
+        jMCashCustomers.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu3MouseClicked(evt);
+                jMCashCustomersMouseClicked(evt);
             }
         });
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(jMCashCustomers);
+
+        jMInstCustomers.setText("عملاء القسط");
+        jMInstCustomers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMInstCustomersMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMInstCustomers);
 
         setJMenuBar(jMenuBar1);
 
@@ -351,10 +368,7 @@ public class Products extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -376,6 +390,23 @@ public class Products extends javax.swing.JFrame {
                 || tfProductCode.getText().length() == 0
                 || tfProductPrice.getText().length() == 0
                 || tfProductCount.getText().length() == 0) {
+
+            JOptionPane.showMessageDialog(null,
+                    "من فضلك يجب ادخل جميع البيانات",
+                    "معلومات",
+                    JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        try {
+            Double.parseDouble(tfProductPrice.getText());
+            Double.parseDouble(tfProductCount.getText());
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,
+                    "هذه البيانات غير متطابقه",
+                    "معلومات",
+                    JOptionPane.INFORMATION_MESSAGE);
 
             return;
         }
@@ -414,31 +445,7 @@ public class Products extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
 
-        searchPanel.setVisible(false);
 
-        try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tailor", "root", "root");
-            PreparedStatement st = con.prepareStatement("select * from product ;");
-            DefaultTableModel model = new DefaultTableModel();
-            table.setModel(model);
-            Object[] col = {"ID", "اسمم المنتج", "الرقم التسلسلي", "السعر", "الكميه", "التاريخ", "الوقت"};
-            model.setColumnIdentifiers(col);
-            ResultSet res = st.executeQuery();
-            while (res.next()) {
-                model.addRow(new Object[]{
-                    res.getInt("idProduct"),
-                    res.getString("name"),
-                    res.getString("code"),
-                    res.getString("price"),
-                    res.getString("count"),
-                    res.getString("date"),
-                    res.getString("time")
-
-                });
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -476,14 +483,6 @@ public class Products extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-
-        productDetailsPanel.setVisible(false);
-        searchPanel.setVisible(true);
-
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     private void tfProductCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfProductCodeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfProductCodeActionPerformed
@@ -491,69 +490,37 @@ public class Products extends javax.swing.JFrame {
     private void btExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExitActionPerformed
 
         // TODO add your handling code here:
+        tfSearch.setText("");
+
         tfProductName.setText("");
         tfProductCode.setText("");
         tfProductPrice.setText("");
         tfProductCount.setText("");
 
-        productDetailsPanel.setVisible(true);
-        searchPanel.setVisible(false);
-
         refresh();
     }//GEN-LAST:event_btExitActionPerformed
 
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
+
         // TODO add your handling code here:
+        try {
+            int index = table.getSelectedRow();
+            TableModel model1 = table.getModel();
+            String name = model1.getValueAt(index, 1).toString();
+            String code = model1.getValueAt(index, 2).toString();
+            String price = model1.getValueAt(index, 3).toString();
+            String count = model1.getValueAt(index, 4).toString();
 
-        int index = table.getSelectedRow();
-        TableModel model1 = table.getModel();
-        String name = model1.getValueAt(index, 1).toString();
-        String code = model1.getValueAt(index, 2).toString();
-        String price = model1.getValueAt(index, 3).toString();
-        String count = model1.getValueAt(index, 4).toString();
+            tfProductName.setText(name);
+            tfProductCode.setText(code);
+            tfProductPrice.setText(price);
+            tfProductCount.setText(count);
 
-        tfProductName.setText(name);
-        tfProductCode.setText(code);
-        tfProductPrice.setText(price);
-        tfProductCount.setText(count);
+        } catch (NullPointerException e) {
+            System.out.println("null pointer exception");
+        }
 
     }//GEN-LAST:event_tableMouseClicked
-
-    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
-        // TODO add your handling code here:
-        this.setVisible(false);
-        this.dispose();
-
-        Welcome frame = new Welcome();
-        frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        frame.setVisible(true);
-    }//GEN-LAST:event_jMenu1MouseClicked
-
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-        // TODO add your handling code here:
-        this.setVisible(false);
-        this.dispose();
-
-        Products frame = new Products();
-        frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        frame.setVisible(true);
-    }//GEN-LAST:event_jMenu2MouseClicked
-
-    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
-        // TODO add your handling code here:
-        this.setVisible(false);
-        this.dispose();
-
-        CashCusomers frame = new CashCusomers();
-        frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        frame.setVisible(true);
-    }//GEN-LAST:event_jMenu3MouseClicked
 
     private void tfProductNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfProductNameKeyTyped
         // TODO add your handling code here:
@@ -673,8 +640,8 @@ public class Products extends javax.swing.JFrame {
                 }
 
                 if (!file.getName().toLowerCase().endsWith(".xls")) {
-                    String currentDate = formatDate(new Date());  
-                    file = new File(file.getParentFile(), file.getName() + "_" + currentDate  + ".xls");
+                    String currentDate = formatDate(new Date());
+                    file = new File(file.getParentFile(), file.getName() + "_" + currentDate + ".xls");
                 }
                 try {
                     fos = new FileOutputStream(file);
@@ -692,6 +659,62 @@ public class Products extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jMCashCustomersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMCashCustomersMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        this.dispose();
+
+        CashCusomers frame = new CashCusomers();
+        frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }//GEN-LAST:event_jMCashCustomersMouseClicked
+
+    private void jMProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMProductsMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        this.dispose();
+
+        Products frame = new Products();
+        frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }//GEN-LAST:event_jMProductsMouseClicked
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        this.dispose();
+
+        Welcome frame = new Welcome();
+        frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void tfProductNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfProductNameFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfProductNameFocusGained
+
+    private void tfProductPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfProductPriceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfProductPriceActionPerformed
+
+    private void jMInstCustomersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMInstCustomersMouseClicked
+        // TODO add your handling code here:
+        
+        this.setVisible(false);
+        this.dispose();
+        
+        InstallmentCusomers frame = new InstallmentCusomers();
+        frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }//GEN-LAST:event_jMInstCustomersMouseClicked
 
     /**
      * @param args the command line arguments
@@ -788,22 +811,23 @@ public class Products extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JMenu jMCashCustomers;
+    private javax.swing.JMenu jMInstCustomers;
+    private javax.swing.JMenu jMProducts;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JPanel productDetailsPanel;
-    private javax.swing.JPanel searchPanel;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable table;
     private javax.swing.JTextField tfProductCode;
     private javax.swing.JTextField tfProductCount;

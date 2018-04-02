@@ -36,12 +36,12 @@ import org.apache.poi.ss.usermodel.VerticalAlignment;
  *
  * @author mohan
  */
-public class CashCusomers extends javax.swing.JFrame {
+public class InstallmentCusomers extends javax.swing.JFrame {
 
     /**
      * Creates new form
      */
-    public CashCusomers() {
+    public InstallmentCusomers() {
         initComponents();
 
         refresh();
@@ -77,7 +77,7 @@ public class CashCusomers extends javax.swing.JFrame {
         tfCustomerID = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         tfProductCode = new javax.swing.JTextField();
-        tfProductPrice = new javax.swing.JTextField();
+        tfProductFront = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -86,12 +86,24 @@ public class CashCusomers extends javax.swing.JFrame {
         tfSearch1 = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        tfProductRate = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jMenuBar3 = new javax.swing.JMenuBar();
-        jMenu8 = new javax.swing.JMenu();
-        jMProducts = new javax.swing.JMenu();
-        jMCashCustomers = new javax.swing.JMenu();
-        jMInstCustomers = new javax.swing.JMenu();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Insttabel = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        tfInstCustomerName = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        tfInstProductCode = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        tfInstProductPrice = new javax.swing.JTextField();
+        jbBuy = new javax.swing.JButton();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -123,7 +135,7 @@ public class CashCusomers extends javax.swing.JFrame {
         jMenuBar1.add(jMenu3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("عملاء الكاش");
+        setTitle("عملاء القسط");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -138,17 +150,9 @@ public class CashCusomers extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8", "Title 9"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        ));
         table.setGridColor(new java.awt.Color(255, 255, 255));
         table.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -157,9 +161,11 @@ public class CashCusomers extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(table);
         if (table.getColumnModel().getColumnCount() > 0) {
-            table.getColumnModel().getColumn(0).setResizable(false);
-            table.getColumnModel().getColumn(0).setPreferredWidth(3);
-            table.getColumnModel().getColumn(1).setPreferredWidth(10);
+            table.getColumnModel().getColumn(4).setHeaderValue("Title 5");
+            table.getColumnModel().getColumn(5).setHeaderValue("Title 6");
+            table.getColumnModel().getColumn(6).setHeaderValue("Title 7");
+            table.getColumnModel().getColumn(7).setHeaderValue("Title 8");
+            table.getColumnModel().getColumn(8).setHeaderValue("Title 9");
         }
 
         jPanel2.setBackground(new java.awt.Color(39, 34, 90));
@@ -169,7 +175,7 @@ public class CashCusomers extends javax.swing.JFrame {
         jLabel5.setText("اسم العميل");
 
         tfCustomerName.setColumns(10);
-        tfCustomerName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tfCustomerName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tfCustomerName.setToolTipText("ادخل اسم المنتج");
         tfCustomerName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,6 +187,7 @@ public class CashCusomers extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("العنوان");
 
+        tfCustomerAddress.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tfCustomerAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfCustomerAddressActionPerformed(evt);
@@ -191,16 +198,20 @@ public class CashCusomers extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("رقم الهاتف");
 
+        tfCustomerPhoneNumber.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("رقم البطاقه");
+
+        tfCustomerID.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("كود المنتج");
 
         tfProductCode.setColumns(10);
-        tfProductCode.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tfProductCode.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tfProductCode.setToolTipText("ادخل اسم المنتج");
         tfProductCode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -208,15 +219,16 @@ public class CashCusomers extends javax.swing.JFrame {
             }
         });
 
-        tfProductPrice.addActionListener(new java.awt.event.ActionListener() {
+        tfProductFront.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tfProductFront.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfProductPriceActionPerformed(evt);
+                tfProductFrontActionPerformed(evt);
             }
         });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("المبلغ");
+        jLabel2.setText("المقدم");
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -259,7 +271,7 @@ public class CashCusomers extends javax.swing.JFrame {
         });
 
         tfSearch1.setBackground(new java.awt.Color(39, 34, 90));
-        tfSearch1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tfSearch1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tfSearch1.setForeground(new java.awt.Color(255, 255, 255));
         tfSearch1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         tfSearch1.setBorder(null);
@@ -277,26 +289,25 @@ public class CashCusomers extends javax.swing.JFrame {
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_search.png"))); // NOI18N
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("النسبه المؤية");
+
+        tfProductRate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tfProductRate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfProductRateActionPerformed(evt);
+            }
+        });
+
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("عملاء الكاش");
+        jLabel10.setText("عملاء القسط");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(jLabel10)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,78 +316,94 @@ public class CashCusomers extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tfSearch1, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
+                                .addComponent(tfSearch1))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(tfCustomerID)
-                                        .addGap(14, 14, 14)
-                                        .addComponent(jLabel8))
-                                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(tfCustomerAddress)
-                                            .addComponent(tfCustomerName, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                        .addComponent(tfCustomerPhoneNumber)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel7)))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(tfCustomerName, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                                    .addComponent(tfCustomerAddress)
+                                    .addComponent(tfCustomerID)
+                                    .addComponent(tfCustomerPhoneNumber))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(32, 32, 32))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfProductCode, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                            .addComponent(tfProductPrice))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btExit, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(7, 7, 7)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(tfProductRate, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel3))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(tfProductCode, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                                            .addComponent(tfProductFront))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel8)
+                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jLabel1)
+                                                .addComponent(jLabel2)))))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btExit, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE))
+                        .addGap(21, 21, 21))))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addComponent(jLabel10)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel10)
-                .addGap(18, 18, 18)
+                .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel9)
                     .addComponent(tfSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(tfCustomerAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(tfCustomerPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addGap(18, 18, 18)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(tfCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfCustomerAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfCustomerPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8)))
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfProductCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfProductPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfProductFront, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(18, 18, 18)
+                .addGap(17, 17, 17)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfProductRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(41, 41, 41)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
                 .addComponent(jButton3)
@@ -387,54 +414,177 @@ public class CashCusomers extends javax.swing.JFrame {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
+        Insttabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Insttabel.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        Insttabel.setGridColor(new java.awt.Color(255, 255, 255));
+        Insttabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                InsttabelMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(Insttabel);
+
+        jPanel3.setBackground(new java.awt.Color(39, 34, 90));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ساداد قسط", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("اسم العميل");
+
+        tfInstCustomerName.setColumns(10);
+        tfInstCustomerName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tfInstCustomerName.setToolTipText("ادخل اسم المنتج");
+        tfInstCustomerName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfInstCustomerNameActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("كود المنتج");
+
+        tfInstProductCode.setColumns(10);
+        tfInstProductCode.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tfInstProductCode.setToolTipText("ادخل اسم المنتج");
+        tfInstProductCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfInstProductCodeActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("المبغ");
+
+        tfInstProductPrice.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tfInstProductPrice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfInstProductPriceActionPerformed(evt);
+            }
+        });
+
+        jbBuy.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jbBuy.setText("سداد");
+        jbBuy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBuyActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(117, 117, 117)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel12)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jbBuy)
+                        .addGap(49, 49, 49)
+                        .addComponent(tfInstProductPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tfInstProductCode, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel4)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tfInstCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(jLabel11)))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel12)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel11)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tfInstCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfInstProductCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tfInstProductPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbBuy)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
         );
 
-        jMenu8.setText("الصفحة الرئيسية");
-        jMenu8.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenu4.setText("الصفحة الرئيسية");
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu8MouseClicked(evt);
+                jMenu4MouseClicked(evt);
             }
         });
-        jMenuBar3.add(jMenu8);
+        jMenuBar2.add(jMenu4);
 
-        jMProducts.setText("المنتجات");
-        jMProducts.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenu5.setText("المنتجات");
+        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMProductsMouseClicked(evt);
+                jMenu5MouseClicked(evt);
             }
         });
-        jMenuBar3.add(jMProducts);
+        jMenuBar2.add(jMenu5);
 
-        jMCashCustomers.setText("عملاء الكاش");
-        jMCashCustomers.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenu6.setText("عملاء الكاش");
+        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMCashCustomersMouseClicked(evt);
+                jMenu6MouseClicked(evt);
             }
         });
-        jMenuBar3.add(jMCashCustomers);
+        jMenuBar2.add(jMenu6);
 
-        jMInstCustomers.setText("عملاء القسط");
-        jMInstCustomers.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenu7.setText("عملاء القسط");
+        jMenu7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMInstCustomersMouseClicked(evt);
+                jMenu7MouseClicked(evt);
             }
         });
-        jMenuBar3.add(jMInstCustomers);
+        jMenuBar2.add(jMenu7);
 
-        setJMenuBar(jMenuBar3);
+        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -482,12 +632,14 @@ public class CashCusomers extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // JOptionPane.showMessageDialog(null, "done ");
 
+        // check if data entry is empty or not
         if (tfCustomerName.getText().length() == 0
                 || tfCustomerAddress.getText().length() == 0
                 || tfCustomerPhoneNumber.getText().length() == 0
                 || tfCustomerID.getText().length() == 0
                 || tfProductCode.getText().length() == 0
-                || tfProductPrice.getText().length() == 0) {
+                || tfProductFront.getText().length() == 0
+                || tfProductRate.getText().length() == 0) {
 
             JOptionPane.showMessageDialog(null,
                     "من فضلك يجب ادخل جميع البيانات",
@@ -497,20 +649,14 @@ public class CashCusomers extends javax.swing.JFrame {
             return;
         }
 
-        try {
-            Double.parseDouble(tfProductPrice.getText());
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,
-                    "هذه البيانات غير متطابقه",
-                    "معلومات",
-                    JOptionPane.INFORMATION_MESSAGE);
-
-            return;
-        }
-
         String productName = "";
         String productTotalPrice = "";
         String count = "";
+        double totalPrice = 0;
+        double front = 0;
+        double remainingPrice = 0;
+        double rate = 0;
+        double price = 0;
 
         // select product info from the product id 
         try {
@@ -525,10 +671,28 @@ public class CashCusomers extends javax.swing.JFrame {
                 count = res.getString("count");
             }
 
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        } finally {
+            try {
 
+                rate = Double.parseDouble(tfProductRate.getText());
+                price = Double.parseDouble(productTotalPrice);
+                front = Double.parseDouble(tfProductFront.getText());
+
+                double x = price - front;
+                totalPrice = (x) + ((rate / 100) * x);
+                remainingPrice = totalPrice - front;
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null,
+                        "هذه البيانات غير متطابقه",
+                        "معلومات",
+                        JOptionPane.INFORMATION_MESSAGE);
+
+                return;
+            }
+
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+        } finally {
             if (productName.equals("") || productTotalPrice.equals("") || count.equals("")) {
                 JOptionPane.showMessageDialog(null,
                         "هذا المنتج غير موجود, تاكد من كود المنتج",
@@ -536,42 +700,37 @@ public class CashCusomers extends javax.swing.JFrame {
                         JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
-            
-            if (Double.parseDouble(tfProductPrice.getText()) > Double.parseDouble(productTotalPrice)) {
-                 JOptionPane.showMessageDialog(null,
-                    "هذا المبغ اكبر من ثمن المنتج",
-                    "معلومات",
-                    JOptionPane.INFORMATION_MESSAGE);
-            return;
-            }
-            
-                        
-            if (Double.parseDouble(tfProductPrice.getText()) < Double.parseDouble(productTotalPrice)) {
-                 JOptionPane.showMessageDialog(null,
-                    "هذا المبغ اقل من ثمن المنتج",
-                    "معلومات",
-                    JOptionPane.INFORMATION_MESSAGE);
-            return;
-            }
-            
-            
-            
-            
         }
 
+        if (Integer.parseInt(count) == 0) {
+            System.out.println("count equal 0");
+            return;
+        }
+
+        if (front > totalPrice) {
+                JOptionPane.showMessageDialog(null,
+                        "المقدم اكبر من سعر المنتج",
+                        "معلومات",
+                        JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        // insert data into installments customers
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tailor", "root", "root");
             System.out.println("Connected Done !");
-            PreparedStatement st = con.prepareStatement("insert into cashCustomer (name, address, phoneNumber, idNumber, productCode, price, totalPrice, productName) values(?,?,?,?,?,?,?,?);");
+            PreparedStatement st = con.prepareStatement("insert into installmentcustomers (name, address, phoneNumber, idNumber, productCode, productName, totalPrice, currentPrice, remainingPrice) values(?,?,?,?,?,?,?,?,?);");
 
             st.setString(1, tfCustomerName.getText());
             st.setString(2, tfCustomerAddress.getText());
             st.setString(3, tfCustomerPhoneNumber.getText());
             st.setString(4, tfCustomerID.getText());
             st.setString(5, tfProductCode.getText());
-            st.setString(6, productTotalPrice);
-            st.setString(7, tfProductPrice.getText());
-            st.setString(8, productName);
+            st.setString(6, productName);
+
+            st.setString(7, String.valueOf(totalPrice));
+            st.setString(8, String.valueOf(front));
+            st.setString(9, String.valueOf(remainingPrice));
 
             /*
              String formatedDate = formatDate(new Date());
@@ -586,17 +745,13 @@ public class CashCusomers extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        // update product count number
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tailor", "root", "root");
             System.out.println("Connected Done !");
             PreparedStatement st = con.prepareStatement("update product set count =? where code=?;");
 
-            int c = 0;
-            if (Integer.parseInt(count) > 0) {
-                c = Integer.parseInt(count) - 1;
-            } else {
-                System.out.println("count is 0");
-            }
+            int c = Integer.parseInt(count) - 1;
 
             st.setString(1, String.valueOf(c));
             st.setString(2, tfProductCode.getText());
@@ -607,14 +762,41 @@ public class CashCusomers extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        refresh();
+
+        // insert and refresh installments
+        try {
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tailor", "root", "root");
+            System.out.println("Connected Done !");
+            PreparedStatement st = con.prepareStatement("insert into installments (name, productName, productCode, installment )  values(?,?,?,?);");
+
+            st.setString(1, tfCustomerName.getText());
+            st.setString(2, productName);
+            st.setString(3, tfProductCode.getText());
+            st.setString(4, tfProductFront.getText());
+
+            /*
+             String formatedDate = formatDate(new Date());
+             st.setString(5, formatedDate);
+
+             String formatedTime = formatTime(new Date());
+             st.setString(6, formatedTime);
+             */
+            st.execute();
+            con.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        refreshInstallments(tfCustomerName.getText(), tfProductCode.getText());
+
         tfCustomerName.setText("");
         tfCustomerAddress.setText("");
         tfCustomerPhoneNumber.setText("");
         tfCustomerID.setText("");
         tfProductCode.setText("");
-        tfProductPrice.setText("");
-
-        refresh();
+        tfProductFront.setText("");
+        tfProductRate.setText("");
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -638,7 +820,7 @@ public class CashCusomers extends javax.swing.JFrame {
 
             try {
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tailor", "root", "root");
-                PreparedStatement st = con.prepareStatement("delete from cashCustomer where id =?");
+                PreparedStatement st = con.prepareStatement("delete from installmentcustomers where id =?");
                 st.setString(1, id);
                 st.execute();
                 con.close();
@@ -649,22 +831,42 @@ public class CashCusomers extends javax.swing.JFrame {
             return;
         }
 
+        if (tfInstCustomerName.getText().length() == 0 || tfInstProductCode.getText().length() == 0) {
+            return;
+        }
+
+        try {
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tailor", "root", "root");
+            PreparedStatement st = con.prepareStatement("delete from installments where name =? and productCode =?;");
+            st.setString(1, tfInstCustomerName.getText());
+            st.setString(2, tfInstProductCode.getText());
+
+            st.execute();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
         tfCustomerName.setText("");
         tfCustomerAddress.setText("");
         tfCustomerPhoneNumber.setText("");
         tfCustomerID.setText("");
         tfProductCode.setText("");
-        tfProductPrice.setText("");
+        tfProductFront.setText("");
+        tfProductRate.setText("");
         
-       
-
+        tfInstCustomerName.setText("");
+        tfInstProductCode.setText("");
+        tfInstProductPrice.setText("");
+        
         refresh();
+        refreshInstallments("", "");
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void tfProductPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfProductPriceActionPerformed
+    private void tfProductFrontActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfProductFrontActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfProductPriceActionPerformed
+    }//GEN-LAST:event_tfProductFrontActionPerformed
 
     private void btExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExitActionPerformed
         // TODO add your handling code here:
@@ -675,8 +877,15 @@ public class CashCusomers extends javax.swing.JFrame {
         tfCustomerPhoneNumber.setText("");
         tfCustomerID.setText("");
         tfProductCode.setText("");
-        tfProductPrice.setText("");
-
+        tfProductFront.setText("");
+        tfProductRate.setText("");
+        
+        
+        tfInstCustomerName.setText("");
+        tfInstProductCode.setText("");
+        tfInstProductPrice.setText("");
+       
+        refreshInstallments("", "");
         refresh();
     }//GEN-LAST:event_btExitActionPerformed
 
@@ -691,14 +900,22 @@ public class CashCusomers extends javax.swing.JFrame {
             String phoneNumber = model1.getValueAt(index, 3).toString();
             String idNumber = model1.getValueAt(index, 4).toString();
             String productCode = model1.getValueAt(index, 5).toString();
-            String price = model1.getValueAt(index, 7).toString();
+            String currentPrice = model1.getValueAt(index, 8).toString();
 
+            /*
             tfCustomerName.setText(name);
             tfCustomerAddress.setText(address);
             tfCustomerPhoneNumber.setText(phoneNumber);
             tfCustomerID.setText(idNumber);
             tfProductCode.setText(productCode);
-            tfProductPrice.setText(price);
+            tfProductFront.setText(currentPrice);
+            */
+
+            tfInstCustomerName.setText(name);
+            tfInstProductCode.setText(productCode);
+
+            refreshInstallments(name, productCode);
+
         } catch (NullPointerException e) {
             System.out.println("null poniter exception");
         }
@@ -743,12 +960,45 @@ public class CashCusomers extends javax.swing.JFrame {
         this.setVisible(false);
         this.dispose();
 
-        CashCusomers frame = new CashCusomers();
+        InstallmentCusomers frame = new InstallmentCusomers();
         frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setVisible(true);
     }//GEN-LAST:event_jMenu3MouseClicked
+
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        this.dispose();
+
+        Welcome frame = new Welcome();
+        frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }//GEN-LAST:event_jMenu4MouseClicked
+
+    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        this.dispose();
+
+        Products frame = new Products();
+        frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }//GEN-LAST:event_jMenu5MouseClicked
+
+    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        this.dispose();
+
+        CashCusomers frame = new CashCusomers();
+        frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }//GEN-LAST:event_jMenu6MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
@@ -865,12 +1115,12 @@ public class CashCusomers extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tailor", "root", "root");
-            String query = "select * from cashCustomer where name like ?";
+            String query = "select * from installmentcustomers where name like ?";
             PreparedStatement st = con.prepareStatement(query);
             st.setString(1, tfSearch1.getText() + "%");
             DefaultTableModel model = new DefaultTableModel();
             table.setModel(model);
-            Object[] col = {"ID", "اسم العميل", "العنوان", "رقم الهاتف", "رقم البطاقه", "كود المنتج", "سعر المنتج", "المبغ المدفوع", "اسم المنتج"};
+            Object[] col = {"ID", "اسم العميل", "العنوان", "رقم الهاتف", "رقم البطاقه", "كود المنتج", "اسم المنتج", "السعر الكلي", "المبلغ المدفوع", "المتبقي"};
             model.setColumnIdentifiers(col);
             ResultSet res = st.executeQuery();
             while (res.next()) {
@@ -881,52 +1131,128 @@ public class CashCusomers extends javax.swing.JFrame {
                     res.getString("phoneNumber"),
                     res.getString("idNumber"),
                     res.getString("productCode"),
-                    res.getString("price"),
+                    res.getString("productName"),
                     res.getString("totalPrice"),
-                    res.getString("productName"),});
+                    res.getString("currentPrice"),
+                    res.getString("remainingPrice"),});
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }//GEN-LAST:event_tfSearch1KeyTyped
 
-    private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
+    private void tfProductRateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfProductRateActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        this.dispose();
+    }//GEN-LAST:event_tfProductRateActionPerformed
 
-        Welcome frame = new Welcome();
-        frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        frame.setVisible(true);
-    }//GEN-LAST:event_jMenu8MouseClicked
-
-    private void jMProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMProductsMouseClicked
+    private void InsttabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InsttabelMouseClicked
         // TODO add your handling code here:
-        this.setVisible(false);
-        this.dispose();
+    }//GEN-LAST:event_InsttabelMouseClicked
 
-        Products frame = new Products();
-        frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-    }//GEN-LAST:event_jMProductsMouseClicked
-
-    private void jMCashCustomersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMCashCustomersMouseClicked
+    private void tfInstCustomerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfInstCustomerNameActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        this.dispose();
+    }//GEN-LAST:event_tfInstCustomerNameActionPerformed
 
-        CashCusomers frame = new CashCusomers();
-        frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        frame.setVisible(true);
-    }//GEN-LAST:event_jMCashCustomersMouseClicked
+    private void tfInstProductCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfInstProductCodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfInstProductCodeActionPerformed
 
-    private void jMInstCustomersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMInstCustomersMouseClicked
+    private void tfInstProductPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfInstProductPriceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfInstProductPriceActionPerformed
+
+    private void jbBuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuyActionPerformed
+        // TODO add your handling code here:
+        // update buyed price
+        if (tfInstCustomerName.getText().length() == 0
+                || tfInstProductCode.getText().length() == 0
+                || tfInstProductPrice.getText().length() == 0) {
+
+            return;
+        }
+        String id = "";
+        String currentPrice = "";
+        String totalPrice = "";
+        String productName = "";
+        String reminderOldPrice = "";
+
+        try {
+            int index = table.getSelectedRow();
+            TableModel model1 = table.getModel();
+            id = model1.getValueAt(index, 0).toString();
+
+            productName = model1.getValueAt(index, 6).toString();;
+            totalPrice = model1.getValueAt(index, 7).toString();
+            currentPrice = model1.getValueAt(index, 8).toString();
+            reminderOldPrice = model1.getValueAt(index, 9).toString();
+
+        } catch (NullPointerException e) {
+            System.out.println("null poniter exception");
+        }
+
+        if (Double.parseDouble(tfInstProductPrice.getText()) > Double.parseDouble(reminderOldPrice) || Double.parseDouble(reminderOldPrice) == 0) {
+            JOptionPane.showMessageDialog(null,
+                    "المبلغ اكبر من المتبقي, او لايوجد متبقي",
+                    "معلومات",
+                    JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        // update product count number
+        try {
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tailor", "root", "root");
+            System.out.println("Connected Done !");
+            PreparedStatement st = con.prepareStatement("update installmentcustomers set currentPrice =?, remainingPrice=? where id=?;");
+
+            double newPrice = Double.parseDouble(tfInstProductPrice.getText()) + Double.parseDouble(currentPrice);
+
+            double reminderPrice = Double.parseDouble(totalPrice) - newPrice;
+
+            st.setString(1, String.valueOf(newPrice));
+            st.setString(2, String.valueOf(reminderPrice));
+
+            st.setInt(3, Integer.parseInt(id));
+
+            st.execute();
+            con.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        refresh();
+
+        // insert into installments
+        try {
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tailor", "root", "root");
+            System.out.println("Connected Done !");
+            PreparedStatement st = con.prepareStatement("insert into installments (name, productName, productCode, installment ) values(?,?,?,?);");
+
+            st.setString(1, tfCustomerName.getText());
+            st.setString(2, productName);
+            st.setString(3, tfInstProductCode.getText());
+            st.setString(4, tfInstProductPrice.getText());
+
+            /*
+             String formatedDate = formatDate(new Date());
+             st.setString(5, formatedDate);
+
+             String formatedTime = formatTime(new Date());
+             st.setString(6, formatedTime);
+             */
+            st.execute();
+            con.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        refreshInstallments(tfCustomerName.getText(), tfInstProductCode.getText());
+
+        tfInstCustomerName.setText("");
+        tfInstProductCode.setText("");
+        tfInstProductPrice.setText("");
+
+    }//GEN-LAST:event_jbBuyActionPerformed
+
+    private void jMenu7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu7MouseClicked
         // TODO add your handling code here:
         
         this.setVisible(false);
@@ -936,7 +1262,7 @@ public class CashCusomers extends javax.swing.JFrame {
         frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setVisible(true);
-    }//GEN-LAST:event_jMInstCustomersMouseClicked
+    }//GEN-LAST:event_jMenu7MouseClicked
 
     /**
      * @param args the command line arguments
@@ -955,21 +1281,23 @@ public class CashCusomers extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CashCusomers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InstallmentCusomers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CashCusomers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InstallmentCusomers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CashCusomers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InstallmentCusomers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CashCusomers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InstallmentCusomers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CashCusomers().setVisible(true);
+                new InstallmentCusomers().setVisible(true);
             }
         });
         try {
@@ -1003,10 +1331,10 @@ public class CashCusomers extends javax.swing.JFrame {
     private void refresh() {
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tailor", "root", "root");
-            PreparedStatement st = con.prepareStatement("select * from cashCustomer ;");
+            PreparedStatement st = con.prepareStatement("select * from installmentcustomers ;");
             DefaultTableModel model = new DefaultTableModel();
             table.setModel(model);
-            Object[] col = {"ID", "اسم العميل", "العنوان", "رقم الهاتف", "رقم البطاقه", "كود المنتج", "سعر المنتج", "المبغ المدفوع", "اسم المنتج"};
+            Object[] col = {"ID", "اسم العميل", "العنوان", "رقم الهاتف", "رقم البطاقه", "كود المنتج", "اسم المنتج", "السعر الكلي", "المبلغ المدفوع", "المتبقي"};
             model.setColumnIdentifiers(col);
             ResultSet res = st.executeQuery();
             while (res.next()) {
@@ -1017,9 +1345,10 @@ public class CashCusomers extends javax.swing.JFrame {
                     res.getString("phoneNumber"),
                     res.getString("idNumber"),
                     res.getString("productCode"),
-                    res.getString("price"),
+                    res.getString("productName"),
                     res.getString("totalPrice"),
-                    res.getString("productName"),});
+                    res.getString("currentPrice"),
+                    res.getString("remainingPrice"),});
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -1028,6 +1357,7 @@ public class CashCusomers extends javax.swing.JFrame {
 
     private JButton save;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Insttabel;
     private javax.swing.JButton btExit;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -1035,33 +1365,68 @@ public class CashCusomers extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMCashCustomers;
-    private javax.swing.JMenu jMInstCustomers;
-    private javax.swing.JMenu jMProducts;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuBar jMenuBar3;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JButton jbBuy;
     private javax.swing.JTable table;
     private javax.swing.JTextField tfCustomerAddress;
     private javax.swing.JTextField tfCustomerID;
     private javax.swing.JTextField tfCustomerName;
     private javax.swing.JTextField tfCustomerPhoneNumber;
+    private javax.swing.JTextField tfInstCustomerName;
+    private javax.swing.JTextField tfInstProductCode;
+    private javax.swing.JTextField tfInstProductPrice;
     private javax.swing.JTextField tfProductCode;
-    private javax.swing.JTextField tfProductPrice;
+    private javax.swing.JTextField tfProductFront;
+    private javax.swing.JTextField tfProductRate;
     private javax.swing.JTextField tfSearch1;
     // End of variables declaration//GEN-END:variables
+
+    private void refreshInstallments(String name, String code) {
+        try {
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tailor", "root", "root");
+            PreparedStatement st = con.prepareStatement("select * from installments where name =? and productCode =?;");
+            st.setString(1, name);
+            st.setString(2, code);
+
+            DefaultTableModel model = new DefaultTableModel();
+            Insttabel.setModel(model);
+            Object[] col = {"اسم العميل", "اسم المنتج", "كود المنتج", "الاقساط"};
+            model.setColumnIdentifiers(col);
+            ResultSet res = st.executeQuery();
+            while (res.next()) {
+                model.addRow(new Object[]{
+                    res.getString("name"),
+                    res.getString("productName"),
+                    res.getString("productCode"),
+                    res.getString("installment"),});
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 }
