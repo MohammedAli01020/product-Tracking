@@ -1,6 +1,7 @@
 package ui;
 
 import com.sun.org.apache.bcel.internal.generic.DDIV;
+import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -17,10 +18,13 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
 import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -46,7 +50,7 @@ public class Products extends javax.swing.JFrame {
      */
     public Products() {
         initComponents();
-
+       
         //searchPanel.setVisible(false);
         refresh();
     }
@@ -225,7 +229,7 @@ public class Products extends javax.swing.JFrame {
         jLabel4.setText("الكميه");
 
         tfSearch.setBackground(new java.awt.Color(39, 34, 90));
-        tfSearch.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tfSearch.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tfSearch.setForeground(new java.awt.Color(255, 255, 255));
         tfSearch.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         tfSearch.setBorder(null);
@@ -312,7 +316,7 @@ public class Products extends javax.swing.JFrame {
                 .addComponent(jButton3)
                 .addGap(18, 18, 18)
                 .addComponent(btExit)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -331,6 +335,7 @@ public class Products extends javax.swing.JFrame {
         );
 
         jMenu1.setText("الصفحة الرئيسية");
+        jMenu1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu1MouseClicked(evt);
@@ -339,6 +344,7 @@ public class Products extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMProducts.setText("المنتجات");
+        jMProducts.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMProducts.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMProductsMouseClicked(evt);
@@ -347,6 +353,7 @@ public class Products extends javax.swing.JFrame {
         jMenuBar1.add(jMProducts);
 
         jMCashCustomers.setText("عملاء الكاش");
+        jMCashCustomers.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMCashCustomers.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMCashCustomersMouseClicked(evt);
@@ -355,6 +362,7 @@ public class Products extends javax.swing.JFrame {
         jMenuBar1.add(jMCashCustomers);
 
         jMInstCustomers.setText("عملاء القسط");
+        jMInstCustomers.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMInstCustomers.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMInstCustomersMouseClicked(evt);
@@ -536,6 +544,10 @@ public class Products extends javax.swing.JFrame {
             st.setString(1, tfSearch.getText() + "%");
             DefaultTableModel model = new DefaultTableModel();
             table.setModel(model);
+            JTableHeader header = table.getTableHeader();
+            header.setFont(new Font("Arial", Font.BOLD, 14));
+            header.setForeground(new Color(39,34,90));
+            
             Object[] col = {"ID", "اسمم المنتج", "الرقم التسلسلي", "السعر", "الكميه", "التاريخ", "الوقت"};
             model.setColumnIdentifiers(col);
             ResultSet res = st.executeQuery();
@@ -606,10 +618,10 @@ public class Products extends javax.swing.JFrame {
                     cellCode.setCellValue(res.getString("code"));
 
                     Cell cellPrice = r.createCell(3);
-                    cellPrice.setCellValue(res.getString("price"));
+                    cellPrice.setCellValue(Double.parseDouble(res.getString("price")));
 
                     Cell cellCount = r.createCell(4);
-                    cellCount.setCellValue(res.getString("count"));
+                    cellCount.setCellValue(Integer.parseInt(res.getString("count")));
 
                     Cell cellDate = r.createCell(5);
                     cellDate.setCellValue(res.getString("date"));
@@ -784,6 +796,10 @@ public class Products extends javax.swing.JFrame {
             PreparedStatement st = con.prepareStatement("select * from product ;");
             DefaultTableModel model = new DefaultTableModel();
             table.setModel(model);
+            JTableHeader header = table.getTableHeader();
+            header.setFont(new Font("Arial", Font.BOLD, 14));
+            header.setForeground(new Color(39,34,90));
+  
             Object[] col = {"ID", "اسمم المنتج", "الرقم التسلسلي", "السعر", "الكميه", "التاريخ", "الوقت"};
             model.setColumnIdentifiers(col);
             ResultSet res = st.executeQuery();

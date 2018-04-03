@@ -86,8 +86,9 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLabel5.setBackground(new java.awt.Color(39, 34, 90));
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel5.setForeground(new java.awt.Color(39, 34, 90));
         jLabel5.setText("تسجيل الدخول");
 
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -104,12 +105,14 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setBackground(new java.awt.Color(39, 34, 90));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel2.setForeground(new java.awt.Color(39, 34, 90));
         jLabel2.setText("اسم المستخدم");
 
+        jLabel3.setBackground(new java.awt.Color(39, 34, 90));
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel3.setForeground(new java.awt.Color(39, 34, 90));
         jLabel3.setText("الرقم السري");
 
         jButton1.setBackground(new java.awt.Color(39, 34, 90));

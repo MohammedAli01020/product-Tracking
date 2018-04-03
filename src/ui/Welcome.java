@@ -42,16 +42,16 @@ public class Welcome extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         statPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLStat = new javax.swing.JLabel();
         CashCustomerPanel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLCash = new javax.swing.JLabel();
         instCustomerPanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLInst = new javax.swing.JLabel();
         productsPanel = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        jLProducts = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("الصفحة الرئيسية");
@@ -71,9 +71,9 @@ public class Welcome extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(428, Short.MAX_VALUE)
+                .addContainerGap(425, Short.MAX_VALUE)
                 .addComponent(jLabel11)
-                .addContainerGap(466, Short.MAX_VALUE))
+                .addContainerGap(461, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,9 +97,9 @@ public class Welcome extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_stat.png"))); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(64, 118, 232));
-        jLabel2.setText("اخر الاحصائيات");
+        jLStat.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLStat.setForeground(new java.awt.Color(39, 34, 90));
+        jLStat.setText("اخر الاحصائيات");
 
         javax.swing.GroupLayout statPanelLayout = new javax.swing.GroupLayout(statPanel);
         statPanel.setLayout(statPanelLayout);
@@ -107,7 +107,7 @@ public class Welcome extends javax.swing.JFrame {
             statPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(statPanelLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(jLabel2)
+                .addComponent(jLStat)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -120,7 +120,7 @@ public class Welcome extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addComponent(jLStat)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -141,22 +141,23 @@ public class Welcome extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_cash_customer.png"))); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(64, 118, 232));
-        jLabel4.setText("عملاء الكاش");
+        jLCash.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLCash.setForeground(new java.awt.Color(39, 34, 90));
+        jLCash.setText("عملاء الكاش");
 
         javax.swing.GroupLayout CashCustomerPanelLayout = new javax.swing.GroupLayout(CashCustomerPanel);
         CashCustomerPanel.setLayout(CashCustomerPanelLayout);
         CashCustomerPanelLayout.setHorizontalGroup(
             CashCustomerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CashCustomerPanelLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel4)
-                .addContainerGap(37, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CashCustomerPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(46, 46, 46))
+                .addGroup(CashCustomerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CashCustomerPanelLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jLCash))
+                    .addGroup(CashCustomerPanelLayout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(jLabel3)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         CashCustomerPanelLayout.setVerticalGroup(
             CashCustomerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,7 +165,7 @@ public class Welcome extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
+                .addComponent(jLCash)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -182,9 +183,9 @@ public class Welcome extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_cash_customer.png"))); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(64, 118, 232));
-        jLabel6.setText("عملاء القسط");
+        jLInst.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLInst.setForeground(new java.awt.Color(39, 34, 90));
+        jLInst.setText("عملاء القسط");
 
         javax.swing.GroupLayout instCustomerPanelLayout = new javax.swing.GroupLayout(instCustomerPanel);
         instCustomerPanel.setLayout(instCustomerPanelLayout);
@@ -194,11 +195,11 @@ public class Welcome extends javax.swing.JFrame {
                 .addGroup(instCustomerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(instCustomerPanelLayout.createSequentialGroup()
                         .addGap(35, 35, 35)
-                        .addComponent(jLabel6))
+                        .addComponent(jLInst))
                     .addGroup(instCustomerPanelLayout.createSequentialGroup()
                         .addGap(54, 54, 54)
                         .addComponent(jLabel5)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         instCustomerPanelLayout.setVerticalGroup(
             instCustomerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,7 +207,7 @@ public class Welcome extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel6)
+                .addComponent(jLInst)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -224,9 +225,9 @@ public class Welcome extends javax.swing.JFrame {
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_products.png"))); // NOI18N
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(64, 118, 232));
-        jLabel10.setText("المنتجات");
+        jLProducts.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLProducts.setForeground(new java.awt.Color(39, 34, 90));
+        jLProducts.setText("المنتجات");
 
         javax.swing.GroupLayout productsPanelLayout = new javax.swing.GroupLayout(productsPanel);
         productsPanel.setLayout(productsPanelLayout);
@@ -236,7 +237,7 @@ public class Welcome extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addGroup(productsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel9)
-                    .addComponent(jLabel10))
+                    .addComponent(jLProducts))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         productsPanelLayout.setVerticalGroup(
@@ -245,7 +246,7 @@ public class Welcome extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel9)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel10)
+                .addComponent(jLProducts)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -254,29 +255,29 @@ public class Welcome extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(504, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(500, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(CashCustomerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(instCustomerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(instCustomerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(productsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(statPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(504, Short.MAX_VALUE))
+                    .addComponent(statPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(500, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(CashCustomerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(productsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(productsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(instCustomerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(statPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(statPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -349,6 +350,7 @@ public class Welcome extends javax.swing.JFrame {
     private void CashCustomerPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CashCustomerPanelMouseEntered
         // TODO add your handling code here:
         setColor(CashCustomerPanel);
+        jLCash.setForeground(Color.WHITE);
     }//GEN-LAST:event_CashCustomerPanelMouseEntered
 
     private void CashCustomerPanelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CashCustomerPanelMouseReleased
@@ -360,36 +362,49 @@ public class Welcome extends javax.swing.JFrame {
     private void CashCustomerPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CashCustomerPanelMouseExited
         // TODO add your handling code here:
         resetColer(CashCustomerPanel);
+        jLCash.setForeground(new Color(39, 34, 90));
     }//GEN-LAST:event_CashCustomerPanelMouseExited
 
     private void productsPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_productsPanelMouseEntered
         // TODO add your handling code here:
         setColor(productsPanel);
+        jLProducts.setForeground(Color.WHITE);
+
     }//GEN-LAST:event_productsPanelMouseEntered
 
     private void productsPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_productsPanelMouseExited
         // TODO add your handling code here:
         resetColer(productsPanel);
+        jLProducts.setForeground(new Color(39, 34, 90));
+
     }//GEN-LAST:event_productsPanelMouseExited
 
     private void statPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statPanelMouseEntered
         // TODO add your handling code here:
         setColor(statPanel);
+        jLStat.setForeground(Color.WHITE);
+
     }//GEN-LAST:event_statPanelMouseEntered
 
     private void statPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statPanelMouseExited
         // TODO add your handling code here
         resetColer(statPanel);
+        jLStat.setForeground(new Color(39, 34, 90));
+
     }//GEN-LAST:event_statPanelMouseExited
 
     private void instCustomerPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_instCustomerPanelMouseEntered
         // TODO add your handling code here:
         setColor(instCustomerPanel);
+        jLInst.setForeground(Color.WHITE);
+
     }//GEN-LAST:event_instCustomerPanelMouseEntered
 
     private void instCustomerPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_instCustomerPanelMouseExited
         // TODO add your handling code here:
         resetColer(instCustomerPanel);
+        jLInst.setForeground(new Color(39, 34, 90));
+
     }//GEN-LAST:event_instCustomerPanelMouseExited
 
     /**
@@ -430,14 +445,14 @@ public class Welcome extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CashCustomerPanel;
     private javax.swing.JPanel instCustomerPanel;
+    private javax.swing.JLabel jLCash;
+    private javax.swing.JLabel jLInst;
+    private javax.swing.JLabel jLProducts;
+    private javax.swing.JLabel jLStat;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -446,9 +461,9 @@ public class Welcome extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void setColor(JPanel panel) {
-       // panel.setBackground(new Color(115, 163, 239));
-       
-        panel.setBackground(new Color(39,34,90));
+        // panel.setBackground(new Color(115, 163, 239));
+
+        panel.setBackground(new Color(39, 34, 90));
 
     }
 
