@@ -153,9 +153,17 @@ public class InstallmentCusomers extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8", "Title 9"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8", "Title 9", "التاريخ", "الوقت"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         table.setGridColor(new java.awt.Color(255, 255, 255));
         table.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -163,13 +171,6 @@ public class InstallmentCusomers extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(table);
-        if (table.getColumnModel().getColumnCount() > 0) {
-            table.getColumnModel().getColumn(4).setHeaderValue("Title 5");
-            table.getColumnModel().getColumn(5).setHeaderValue("Title 6");
-            table.getColumnModel().getColumn(6).setHeaderValue("Title 7");
-            table.getColumnModel().getColumn(7).setHeaderValue("Title 8");
-            table.getColumnModel().getColumn(8).setHeaderValue("Title 9");
-        }
 
         jPanel2.setBackground(new java.awt.Color(39, 34, 90));
 
@@ -243,6 +244,17 @@ public class InstallmentCusomers extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_sm_buy_product.png"))); // NOI18N
         jButton1.setText("شراء منتج");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton1MouseExited(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -253,6 +265,14 @@ public class InstallmentCusomers extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_sm_excel.png"))); // NOI18N
         jButton3.setText("تصدير كملف اكسيل");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton3MouseExited(evt);
+            }
+        });
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -263,6 +283,14 @@ public class InstallmentCusomers extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_sm_delete_customer.png"))); // NOI18N
         jButton2.setText("حذف عميل");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton2MouseExited(evt);
+            }
+        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -273,6 +301,14 @@ public class InstallmentCusomers extends javax.swing.JFrame {
         btExit.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_sm_back.png"))); // NOI18N
         btExit.setText("الغاء");
+        btExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btExitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btExitMouseExited(evt);
+            }
+        });
         btExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btExitActionPerformed(evt);
@@ -431,9 +467,17 @@ public class InstallmentCusomers extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "اسم العميل", "اسم المنتج", "كود المنتج", "الاقساط", "التاريخ", "الوقت"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         Insttabel.setGridColor(new java.awt.Color(255, 255, 255));
         Insttabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -473,7 +517,7 @@ public class InstallmentCusomers extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("المبغ");
+        jLabel12.setText("المبلغ");
 
         tfInstProductPrice.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tfInstProductPrice.addActionListener(new java.awt.event.ActionListener() {
@@ -482,8 +526,17 @@ public class InstallmentCusomers extends javax.swing.JFrame {
             }
         });
 
+        jbBuy.setBackground(new java.awt.Color(255, 255, 255));
         jbBuy.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jbBuy.setText("سداد");
+        jbBuy.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jbBuyMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jbBuyMouseExited(evt);
+            }
+        });
         jbBuy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbBuyActionPerformed(evt);
@@ -562,6 +615,9 @@ public class InstallmentCusomers extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
         );
+
+        jMenuBar2.setBackground(new java.awt.Color(255, 255, 255));
+        jMenuBar2.setForeground(new java.awt.Color(39, 34, 90));
 
         jMenu4.setText("الصفحة الرئيسية");
         jMenu4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -674,7 +730,7 @@ public class InstallmentCusomers extends javax.swing.JFrame {
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null,
-                        "هذه البيانات غير متطابقه",
+                        "هذه البيانات غير منطقية",
                         "معلومات",
                         JOptionPane.INFORMATION_MESSAGE);
 
@@ -699,10 +755,10 @@ public class InstallmentCusomers extends javax.swing.JFrame {
         }
 
         if (front > totalPrice) {
-                JOptionPane.showMessageDialog(null,
-                        "المقدم اكبر من سعر المنتج",
-                        "معلومات",
-                        JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,
+                    "المقدم اكبر من سعر المنتج",
+                    "معلومات",
+                    JOptionPane.INFORMATION_MESSAGE);
             return;
         }
 
@@ -710,7 +766,7 @@ public class InstallmentCusomers extends javax.swing.JFrame {
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tailor", "root", "root");
             System.out.println("Connected Done !");
-            PreparedStatement st = con.prepareStatement("insert into installmentcustomers (name, address, phoneNumber, idNumber, productCode, productName, totalPrice, currentPrice, remainingPrice) values(?,?,?,?,?,?,?,?,?);");
+            PreparedStatement st = con.prepareStatement("insert into installmentcustomers (name, address, phoneNumber, idNumber, productCode, productName, totalPrice, currentPrice, remainingPrice, date, time) values(?,?,?,?,?,?,?,?,?,?,?);");
 
             st.setString(1, tfCustomerName.getText());
             st.setString(2, tfCustomerAddress.getText());
@@ -723,13 +779,12 @@ public class InstallmentCusomers extends javax.swing.JFrame {
             st.setString(8, String.valueOf(front));
             st.setString(9, String.valueOf(totalPrice));
 
-            /*
-             String formatedDate = formatDate(new Date());
-             st.setString(5, formatedDate);
+            String formatedDate = formatDate(new Date());
+            st.setString(10, formatedDate);
 
-             String formatedTime = formatTime(new Date());
-             st.setString(6, formatedTime);
-             */
+            String formatedTime = formatTime(new Date());
+            st.setString(11, formatedTime);
+
             st.execute();
             con.close();
         } catch (Exception ex) {
@@ -845,11 +900,11 @@ public class InstallmentCusomers extends javax.swing.JFrame {
         tfProductCode.setText("");
         tfProductFront.setText("");
         tfProductRate.setText("");
-        
+
         tfInstCustomerName.setText("");
         tfInstProductCode.setText("");
         tfInstProductPrice.setText("");
-        
+
         refresh();
         refreshInstallments("", "");
 
@@ -870,12 +925,11 @@ public class InstallmentCusomers extends javax.swing.JFrame {
         tfProductCode.setText("");
         tfProductFront.setText("");
         tfProductRate.setText("");
-        
-        
+
         tfInstCustomerName.setText("");
         tfInstProductCode.setText("");
         tfInstProductPrice.setText("");
-       
+
         refreshInstallments("", "");
         refresh();
     }//GEN-LAST:event_btExitActionPerformed
@@ -894,14 +948,13 @@ public class InstallmentCusomers extends javax.swing.JFrame {
             String currentPrice = model1.getValueAt(index, 8).toString();
 
             /*
-            tfCustomerName.setText(name);
-            tfCustomerAddress.setText(address);
-            tfCustomerPhoneNumber.setText(phoneNumber);
-            tfCustomerID.setText(idNumber);
-            tfProductCode.setText(productCode);
-            tfProductFront.setText(currentPrice);
-            */
-
+             tfCustomerName.setText(name);
+             tfCustomerAddress.setText(address);
+             tfCustomerPhoneNumber.setText(phoneNumber);
+             tfCustomerID.setText(idNumber);
+             tfProductCode.setText(productCode);
+             tfProductFront.setText(currentPrice);
+             */
             tfInstCustomerName.setText(name);
             tfInstProductCode.setText(productCode);
 
@@ -1113,7 +1166,7 @@ public class InstallmentCusomers extends javax.swing.JFrame {
             table.setModel(model);
             JTableHeader header = table.getTableHeader();
             header.setFont(new Font("Arial", Font.BOLD, 14));
-            header.setForeground(new Color(39,34,90));
+            header.setForeground(new Color(39, 34, 90));
             Object[] col = {"ID", "اسم العميل", "العنوان", "رقم الهاتف", "رقم البطاقه", "كود المنتج", "اسم المنتج", "السعر الكلي", "المبلغ المدفوع", "المتبقي"};
             model.setColumnIdentifiers(col);
             ResultSet res = st.executeQuery();
@@ -1218,20 +1271,19 @@ public class InstallmentCusomers extends javax.swing.JFrame {
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tailor", "root", "root");
             System.out.println("Connected Done !");
-            PreparedStatement st = con.prepareStatement("insert into installments (name, productName, productCode, installment ) values(?,?,?,?);");
+            PreparedStatement st = con.prepareStatement("insert into installments (name, productName, productCode, installment, date, time) values(?,?,?,?,?,?);");
 
             st.setString(1, tfInstCustomerName.getText());
             st.setString(2, productName);
             st.setString(3, tfInstProductCode.getText());
             st.setString(4, tfInstProductPrice.getText());
 
-            /*
-             String formatedDate = formatDate(new Date());
-             st.setString(5, formatedDate);
+            String formatedDate = formatDate(new Date());
+            st.setString(5, formatedDate);
 
-             String formatedTime = formatTime(new Date());
-             st.setString(6, formatedTime);
-             */
+            String formatedTime = formatTime(new Date());
+            st.setString(6, formatedTime);
+
             st.execute();
             con.close();
         } catch (Exception ex) {
@@ -1248,15 +1300,79 @@ public class InstallmentCusomers extends javax.swing.JFrame {
 
     private void jMenu7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu7MouseClicked
         // TODO add your handling code here:
-        
+
         this.setVisible(false);
         this.dispose();
-        
+
         InstallmentCusomers frame = new InstallmentCusomers();
         frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setVisible(true);
     }//GEN-LAST:event_jMenu7MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+        // TODO add your handling code here:
+        jButton1.setBackground(new Color(39, 34, 90));
+        jButton1.setForeground(Color.white);
+    }//GEN-LAST:event_jButton1MouseEntered
+
+    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
+        // TODO add your handling code here:
+        jButton1.setBackground(Color.white);
+        jButton1.setForeground(Color.black);
+    }//GEN-LAST:event_jButton1MouseExited
+
+    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
+        // TODO add your handling code here:
+        jButton3.setBackground(new Color(39, 34, 90));
+        jButton3.setForeground(Color.white);
+    }//GEN-LAST:event_jButton3MouseEntered
+
+    private void jButton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseExited
+        // TODO add your handling code here:
+        jButton3.setBackground(Color.white);
+        jButton3.setForeground(Color.black);
+    }//GEN-LAST:event_jButton3MouseExited
+
+    private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
+        // TODO add your handling code here:
+        jButton2.setBackground(new Color(39, 34, 90));
+        jButton2.setForeground(Color.white);
+    }//GEN-LAST:event_jButton2MouseEntered
+
+    private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
+        // TODO add your handling code here:
+        jButton2.setBackground(Color.white);
+        jButton2.setForeground(Color.black);
+    }//GEN-LAST:event_jButton2MouseExited
+
+    private void btExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btExitMouseEntered
+        // TODO add your handling code here:
+        btExit.setBackground(new Color(39, 34, 90));
+        btExit.setForeground(Color.white);
+    }//GEN-LAST:event_btExitMouseEntered
+
+    private void btExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btExitMouseExited
+        // TODO add your handling code here:
+        btExit.setBackground(Color.white);
+        btExit.setForeground(Color.black);
+    }//GEN-LAST:event_btExitMouseExited
+
+    private void jbBuyMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbBuyMouseEntered
+        // TODO add your handling code here:
+        jbBuy.setBackground(new Color(39, 34, 90));
+        jbBuy.setForeground(Color.white);
+    }//GEN-LAST:event_jbBuyMouseEntered
+
+    private void jbBuyMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbBuyMouseExited
+        // TODO add your handling code here:
+        jbBuy.setBackground(Color.white);
+        jbBuy.setForeground(Color.black);
+    }//GEN-LAST:event_jbBuyMouseExited
 
     /**
      * @param args the command line arguments
@@ -1330,8 +1446,8 @@ public class InstallmentCusomers extends javax.swing.JFrame {
             table.setModel(model);
             JTableHeader header = table.getTableHeader();
             header.setFont(new Font("Arial", Font.BOLD, 14));
-            header.setForeground(new Color(39,34,90));
-            Object[] col = {"ID", "اسم العميل", "العنوان", "رقم الهاتف", "رقم البطاقه", "كود المنتج", "اسم المنتج", "السعر الكلي", "المبلغ المدفوع", "المتبقي"};
+            header.setForeground(new Color(39, 34, 90));
+            Object[] col = {"ID", "اسم العميل", "العنوان", "رقم الهاتف", "رقم البطاقه", "كود المنتج", "اسم المنتج", "السعر الكلي", "المبلغ المدفوع", "المتبقي", "التاريخ", "الوقت"};
             model.setColumnIdentifiers(col);
             ResultSet res = st.executeQuery();
             while (res.next()) {
@@ -1345,8 +1461,12 @@ public class InstallmentCusomers extends javax.swing.JFrame {
                     res.getString("productName"),
                     res.getString("totalPrice"),
                     res.getString("currentPrice"),
-                    res.getString("remainingPrice"),});
+                    res.getString("remainingPrice"),
+                    res.getString("date"),
+                    res.getString("time"),});
             }
+            con.close();
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -1412,7 +1532,10 @@ public class InstallmentCusomers extends javax.swing.JFrame {
 
             DefaultTableModel model = new DefaultTableModel();
             Insttabel.setModel(model);
-            Object[] col = {"اسم العميل", "اسم المنتج", "كود المنتج", "الاقساط"};
+            JTableHeader header = Insttabel.getTableHeader();
+            header.setFont(new Font("Arial", Font.BOLD, 14));
+            header.setForeground(new Color(39, 34, 90));
+            Object[] col = {"اسم العميل", "اسم المنتج", "كود المنتج", "الاقساط", "التاريخ", "الوقت"};
             model.setColumnIdentifiers(col);
             ResultSet res = st.executeQuery();
             while (res.next()) {
@@ -1420,7 +1543,9 @@ public class InstallmentCusomers extends javax.swing.JFrame {
                     res.getString("name"),
                     res.getString("productName"),
                     res.getString("productCode"),
-                    res.getString("installment"),});
+                    res.getString("installment"),
+                    res.getString("date"),
+                    res.getString("time"),});
             }
         } catch (Exception ex) {
             ex.printStackTrace();

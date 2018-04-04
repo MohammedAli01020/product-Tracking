@@ -16,6 +16,11 @@ public class MainWindow {
 
         SplashScreen splashScreen = new SplashScreen();
         splashScreen.setVisible(true);
+        
+        Login login = new Login();
+        login.setExtendedState(login.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+        login.setLocationRelativeTo(null);
+        login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         try {
             for (int i = 0; i <= 100; i++) {
@@ -29,11 +34,6 @@ public class MainWindow {
         }
 
         splashScreen.setVisible(false);
-
-        Login login = new Login();
-        login.setExtendedState(login.getExtendedState() | JFrame.MAXIMIZED_BOTH);
-        login.setLocationRelativeTo(null);
-        login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         login.setVisible(true);
 
     }

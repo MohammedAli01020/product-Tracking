@@ -59,7 +59,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_user.png"))); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("مرحبا بك قم بتسجيل الدخول");
 
@@ -87,7 +87,7 @@ public class Login extends javax.swing.JFrame {
         );
 
         jLabel5.setBackground(new java.awt.Color(39, 34, 90));
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 48)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(39, 34, 90));
         jLabel5.setText("تسجيل الدخول");
 
@@ -106,17 +106,17 @@ public class Login extends javax.swing.JFrame {
         });
 
         jLabel2.setBackground(new java.awt.Color(39, 34, 90));
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(39, 34, 90));
         jLabel2.setText("اسم المستخدم");
 
         jLabel3.setBackground(new java.awt.Color(39, 34, 90));
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(39, 34, 90));
         jLabel3.setText("الرقم السري");
 
         jButton1.setBackground(new java.awt.Color(39, 34, 90));
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("دخول");
         jButton1.setBorder(null);
@@ -132,7 +132,7 @@ public class Login extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,7 +141,7 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(188, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,7 +159,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -207,7 +207,7 @@ public class Login extends javax.swing.JFrame {
             }
 
             if (flag == 0) {
-                JOptionPane.showMessageDialog(this, "Wrong Username or password");
+                JOptionPane.showMessageDialog(this, "اسم المستخدم او كلمة المرور غير صحيحة");
             }
             //System.out.println();
             con.close();

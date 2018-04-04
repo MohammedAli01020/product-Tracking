@@ -50,7 +50,7 @@ public class Products extends javax.swing.JFrame {
      */
     public Products() {
         initComponents();
-       
+
         //searchPanel.setVisible(false);
         refresh();
     }
@@ -334,11 +334,20 @@ public class Products extends javax.swing.JFrame {
             .addComponent(jScrollPane1)
         );
 
+        jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
+        jMenuBar1.setForeground(new java.awt.Color(39, 34, 90));
+
         jMenu1.setText("الصفحة الرئيسية");
         jMenu1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jMenu1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jMenu1MouseExited(evt);
             }
         });
         jMenuBar1.add(jMenu1);
@@ -412,7 +421,7 @@ public class Products extends javax.swing.JFrame {
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,
-                    "هذه البيانات غير متطابقه",
+                    "هذه البيانات غير منطقية",
                     "معلومات",
                     JOptionPane.INFORMATION_MESSAGE);
 
@@ -546,8 +555,8 @@ public class Products extends javax.swing.JFrame {
             table.setModel(model);
             JTableHeader header = table.getTableHeader();
             header.setFont(new Font("Arial", Font.BOLD, 14));
-            header.setForeground(new Color(39,34,90));
-            
+            header.setForeground(new Color(39, 34, 90));
+
             Object[] col = {"ID", "اسمم المنتج", "الرقم التسلسلي", "السعر", "الكميه", "التاريخ", "الوقت"};
             model.setColumnIdentifiers(col);
             ResultSet res = st.executeQuery();
@@ -718,15 +727,26 @@ public class Products extends javax.swing.JFrame {
 
     private void jMInstCustomersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMInstCustomersMouseClicked
         // TODO add your handling code here:
-        
+
         this.setVisible(false);
         this.dispose();
-        
+
         InstallmentCusomers frame = new InstallmentCusomers();
         frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setVisible(true);
     }//GEN-LAST:event_jMInstCustomersMouseClicked
+
+    private void jMenu1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseEntered
+        // TODO add your handling code here:
+     //jMenu1.setForeground(Color.BLUE);   
+
+    }//GEN-LAST:event_jMenu1MouseEntered
+
+    private void jMenu1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseExited
+        // TODO add your handling code here:
+      //  jMenu1.setBackground(Color.white);
+    }//GEN-LAST:event_jMenu1MouseExited
 
     /**
      * @param args the command line arguments
@@ -798,8 +818,8 @@ public class Products extends javax.swing.JFrame {
             table.setModel(model);
             JTableHeader header = table.getTableHeader();
             header.setFont(new Font("Arial", Font.BOLD, 14));
-            header.setForeground(new Color(39,34,90));
-  
+            header.setForeground(new Color(39, 34, 90));
+
             Object[] col = {"ID", "اسمم المنتج", "الرقم التسلسلي", "السعر", "الكميه", "التاريخ", "الوقت"};
             model.setColumnIdentifiers(col);
             ResultSet res = st.executeQuery();

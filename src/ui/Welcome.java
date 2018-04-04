@@ -25,7 +25,6 @@ public class Welcome extends javax.swing.JFrame {
      */
     public Welcome() {
         initComponents();
-
     }
 
     /**
@@ -71,9 +70,9 @@ public class Welcome extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(425, Short.MAX_VALUE)
+                .addContainerGap(417, Short.MAX_VALUE)
                 .addComponent(jLabel11)
-                .addContainerGap(461, Short.MAX_VALUE))
+                .addContainerGap(453, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,7 +96,7 @@ public class Welcome extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_stat.png"))); // NOI18N
 
-        jLStat.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLStat.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLStat.setForeground(new java.awt.Color(39, 34, 90));
         jLStat.setText("اخر الاحصائيات");
 
@@ -105,14 +104,14 @@ public class Welcome extends javax.swing.JFrame {
         statPanel.setLayout(statPanelLayout);
         statPanelLayout.setHorizontalGroup(
             statPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(statPanelLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLStat)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(43, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(46, 46, 46))
+            .addGroup(statPanelLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLStat)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         statPanelLayout.setVerticalGroup(
             statPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,7 +140,7 @@ public class Welcome extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_cash_customer.png"))); // NOI18N
 
-        jLCash.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLCash.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLCash.setForeground(new java.awt.Color(39, 34, 90));
         jLCash.setText("عملاء الكاش");
 
@@ -183,7 +182,7 @@ public class Welcome extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_cash_customer.png"))); // NOI18N
 
-        jLInst.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLInst.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLInst.setForeground(new java.awt.Color(39, 34, 90));
         jLInst.setText("عملاء القسط");
 
@@ -194,12 +193,12 @@ public class Welcome extends javax.swing.JFrame {
             .addGroup(instCustomerPanelLayout.createSequentialGroup()
                 .addGroup(instCustomerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(instCustomerPanelLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jLInst))
+                        .addGap(44, 44, 44)
+                        .addComponent(jLabel5))
                     .addGroup(instCustomerPanelLayout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(jLabel5)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                        .addGap(30, 30, 30)
+                        .addComponent(jLInst)))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         instCustomerPanelLayout.setVerticalGroup(
             instCustomerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,7 +224,7 @@ public class Welcome extends javax.swing.JFrame {
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_products.png"))); // NOI18N
 
-        jLProducts.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLProducts.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLProducts.setForeground(new java.awt.Color(39, 34, 90));
         jLProducts.setText("المنتجات");
 
@@ -233,12 +232,12 @@ public class Welcome extends javax.swing.JFrame {
         productsPanel.setLayout(productsPanelLayout);
         productsPanelLayout.setHorizontalGroup(
             productsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(productsPanelLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(productsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel9)
-                    .addComponent(jLProducts))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, productsPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(productsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLProducts)
+                    .addComponent(jLabel9))
+                .addGap(40, 40, 40))
         );
         productsPanelLayout.setVerticalGroup(
             productsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

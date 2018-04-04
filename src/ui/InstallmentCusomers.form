@@ -46,6 +46,14 @@
       </SubComponents>
     </Container>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar2">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="5a" green="22" red="27" type="rgb"/>
+        </Property>
+      </Properties>
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu4">
           <Properties>
@@ -179,7 +187,7 @@
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="9" rowCount="0">
+                  <Table columnCount="11" rowCount="0">
                     <Column editable="true" title="Title 1" type="java.lang.Object"/>
                     <Column editable="true" title="Title 2" type="java.lang.Object"/>
                     <Column editable="true" title="Title 3" type="java.lang.Object"/>
@@ -189,6 +197,8 @@
                     <Column editable="true" title="Title 7" type="java.lang.Object"/>
                     <Column editable="true" title="Title 8" type="java.lang.Object"/>
                     <Column editable="true" title="Title 9" type="java.lang.Object"/>
+                    <Column editable="true" title="&#x627;&#x644;&#x62a;&#x627;&#x631;&#x64a;&#x62e;" type="java.lang.String"/>
+                    <Column editable="true" title="&#x627;&#x644;&#x648;&#x642;&#x62a;" type="java.lang.String"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -214,27 +224,37 @@
                       <Renderer/>
                     </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="Title 5"/>
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="Title 6"/>
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="Title 7"/>
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="Title 8"/>
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="Title 9"/>
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
@@ -548,6 +568,9 @@
                 <Property name="text" type="java.lang.String" value="&#x634;&#x631;&#x627;&#x621; &#x645;&#x646;&#x62a;&#x62c;"/>
               </Properties>
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseExited"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
               </Events>
             </Component>
@@ -565,6 +588,8 @@
                 <Property name="text" type="java.lang.String" value="&#x62a;&#x635;&#x62f;&#x64a;&#x631; &#x643;&#x645;&#x644;&#x641; &#x627;&#x643;&#x633;&#x64a;&#x644;"/>
               </Properties>
               <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton3MouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton3MouseExited"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
               </Events>
             </Component>
@@ -582,6 +607,8 @@
                 <Property name="text" type="java.lang.String" value="&#x62d;&#x630;&#x641; &#x639;&#x645;&#x64a;&#x644;"/>
               </Properties>
               <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton2MouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton2MouseExited"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
               </Events>
             </Component>
@@ -599,6 +626,8 @@
                 <Property name="text" type="java.lang.String" value="&#x627;&#x644;&#x63a;&#x627;&#x621;"/>
               </Properties>
               <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btExitMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btExitMouseExited"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btExitActionPerformed"/>
               </Events>
             </Component>
@@ -683,15 +712,27 @@
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="0">
-                    <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                  <Table columnCount="6" rowCount="0">
+                    <Column editable="true" title="&#x627;&#x633;&#x645; &#x627;&#x644;&#x639;&#x645;&#x64a;&#x644;" type="java.lang.String"/>
+                    <Column editable="true" title="&#x627;&#x633;&#x645; &#x627;&#x644;&#x645;&#x646;&#x62a;&#x62c;" type="java.lang.String"/>
+                    <Column editable="true" title="&#x643;&#x648;&#x62f; &#x627;&#x644;&#x645;&#x646;&#x62a;&#x62c;" type="java.lang.String"/>
+                    <Column editable="true" title="&#x627;&#x644;&#x627;&#x642;&#x633;&#x627;&#x637;" type="java.lang.String"/>
+                    <Column editable="true" title="&#x627;&#x644;&#x62a;&#x627;&#x631;&#x64a;&#x62e;" type="java.lang.String"/>
+                    <Column editable="true" title="&#x627;&#x644;&#x648;&#x642;&#x62a;" type="java.lang.String"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>
@@ -864,7 +905,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="&#x627;&#x644;&#x645;&#x628;&#x63a;"/>
+                <Property name="text" type="java.lang.String" value="&#x627;&#x644;&#x645;&#x628;&#x644;&#x63a;"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="tfInstProductPrice">
@@ -879,12 +920,17 @@
             </Component>
             <Component class="javax.swing.JButton" name="jbBuy">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#x633;&#x62f;&#x627;&#x62f;"/>
               </Properties>
               <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jbBuyMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jbBuyMouseExited"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbBuyActionPerformed"/>
               </Events>
             </Component>
