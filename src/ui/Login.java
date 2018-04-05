@@ -182,7 +182,7 @@ public class Login extends javax.swing.JFrame {
         try {
             String driver = "com.mysql.jdbc.Driver";
             Class.forName(driver);
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/crm", "root", "root");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tailor", "root", "root");
             System.out.println(con.toString());
             String nm = jTextField1.getText();
             String paas = jPasswordField1.getText();

@@ -67,8 +67,6 @@ public class InstallmentCusomers extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        table = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         tfCustomerName = new javax.swing.JTextField();
@@ -92,6 +90,10 @@ public class InstallmentCusomers extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         tfProductRate = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        productsName = new javax.swing.JTextArea();
+        jLTotalPrice = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         Insttabel = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
@@ -102,11 +104,14 @@ public class InstallmentCusomers extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         tfInstProductPrice = new javax.swing.JTextField();
         jbBuy = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        table = new javax.swing.JTable();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -146,31 +151,6 @@ public class InstallmentCusomers extends javax.swing.JFrame {
         });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        table.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8", "Title 9", "التاريخ", "الوقت"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        table.setGridColor(new java.awt.Color(255, 255, 255));
-        table.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tableMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(table);
 
         jPanel2.setBackground(new java.awt.Color(39, 34, 90));
 
@@ -350,65 +330,80 @@ public class InstallmentCusomers extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("عملاء القسط");
 
+        jButton4.setText("اضافة");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        productsName.setEditable(false);
+        productsName.setColumns(20);
+        productsName.setRows(5);
+        jScrollPane3.setViewportView(productsName);
+
+        jLTotalPrice.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLTotalPrice.setForeground(new java.awt.Color(255, 255, 255));
+        jLTotalPrice.setText("total price");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tfSearch1))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(tfCustomerName, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                                    .addComponent(tfCustomerAddress)
-                                    .addComponent(tfCustomerID)
-                                    .addComponent(tfCustomerPhoneNumber))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jLabel8))))
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(tfProductRate, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(tfProductCode, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfProductFront, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btExit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                        .addGap(35, 35, 35))))
-            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(77, 77, 77)
                 .addComponent(jLabel10)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tfSearch1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(tfCustomerAddress, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tfCustomerName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                                .addComponent(tfCustomerID, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tfCustomerPhoneNumber, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(tfProductCode, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 21, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(tfProductFront)
+                            .addComponent(tfProductRate, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(3, 3, 3))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(16, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -438,30 +433,36 @@ public class InstallmentCusomers extends javax.swing.JFrame {
                             .addComponent(tfCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8)))
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfProductCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton4)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLTotalPrice)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfProductFront, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(17, 17, 17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfProductRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(41, 41, 41)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btExit)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        Insttabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Insttabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Insttabel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -479,6 +480,7 @@ public class InstallmentCusomers extends javax.swing.JFrame {
             }
         });
         Insttabel.setGridColor(new java.awt.Color(255, 255, 255));
+        Insttabel.setRowHeight(25);
         Insttabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 InsttabelMouseClicked(evt);
@@ -557,7 +559,7 @@ public class InstallmentCusomers extends javax.swing.JFrame {
                         .addComponent(tfInstProductPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tfInstProductCode, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                    .addComponent(tfInstProductCode, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel4)))
@@ -593,6 +595,32 @@ public class InstallmentCusomers extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        table.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8", "Title 9", "التاريخ", "الوقت"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        table.setGridColor(new java.awt.Color(255, 255, 255));
+        table.setRowHeight(25);
+        table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(table);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -600,20 +628,21 @@ public class InstallmentCusomers extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jMenuBar2.setBackground(new java.awt.Color(255, 255, 255));
@@ -655,6 +684,15 @@ public class InstallmentCusomers extends javax.swing.JFrame {
         });
         jMenuBar2.add(jMenu7);
 
+        jMenu8.setText("اخر الاحصائيات");
+        jMenu8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu8MouseClicked(evt);
+            }
+        });
+        jMenuBar2.add(jMenu8);
+
         setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -684,81 +722,49 @@ public class InstallmentCusomers extends javax.swing.JFrame {
                 || tfCustomerAddress.getText().length() == 0
                 || tfCustomerPhoneNumber.getText().length() == 0
                 || tfCustomerID.getText().length() == 0
-                || tfProductCode.getText().length() == 0
+                || productsName.getText().length() == 0
                 || tfProductFront.getText().length() == 0
-                || tfProductRate.getText().length() == 0) {
+                || tfProductRate.getText().length() == 0
+                || jLTotalPrice.getText().length() == 0
+                || productsCode == "") {
 
             JOptionPane.showMessageDialog(null,
                     "من فضلك يجب ادخل جميع البيانات",
                     "معلومات",
                     JOptionPane.INFORMATION_MESSAGE);
-
             return;
         }
 
-        String productName = "";
-        String productTotalPrice = "";
-        String count = "";
-        double totalPrice = 0;
-        double front = 0;
-        double remainingPrice = 0;
         double rate = 0;
         double price = 0;
+        double front = 0;
+        double remainingPrice = 0;
+        double finalPrice = 0;
 
-        // select product info from the product id 
         try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tailor", "root", "root");
-            PreparedStatement st = con.prepareStatement("select name, price, count from product where code =?");
-            st.setString(1, tfProductCode.getText());
 
-            ResultSet res = st.executeQuery();
-            while (res.next()) {
-                productName = res.getString("name");
-                productTotalPrice = res.getString("price");
-                count = res.getString("count");
-            }
+            rate = Double.parseDouble(tfProductRate.getText());
+            price = Double.parseDouble(jLTotalPrice.getText());
+            front = Double.parseDouble(tfProductFront.getText());
 
-            try {
-
-                rate = Double.parseDouble(tfProductRate.getText());
-                price = Double.parseDouble(productTotalPrice);
-                front = Double.parseDouble(tfProductFront.getText());
-
-                double x = price - front;
-                totalPrice = (x) + ((rate / 100) * x);
-                remainingPrice = totalPrice - front;
-
-            } catch (Exception e) {
+            if (front > price) {
                 JOptionPane.showMessageDialog(null,
-                        "هذه البيانات غير منطقية",
-                        "معلومات",
-                        JOptionPane.INFORMATION_MESSAGE);
-
-                return;
-            }
-
-        } catch (Exception ex) {
-            System.out.println(ex.toString());
-        } finally {
-            if (productName.equals("") || productTotalPrice.equals("") || count.equals("")) {
-                JOptionPane.showMessageDialog(null,
-                        "هذا المنتج غير موجود, تاكد من كود المنتج",
+                        "المقدم اكبر من سعر المنتج",
                         "معلومات",
                         JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
-        }
 
-        if (Integer.parseInt(count) == 0) {
-            System.out.println("count equal 0");
-            return;
-        }
+            double x = price - front;
+            finalPrice = (x) + ((rate / 100) * x) + front;
+            remainingPrice = finalPrice - front;
 
-        if (front > totalPrice) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null,
-                    "المقدم اكبر من سعر المنتج",
+                    "هذه البيانات غير منطقية",
                     "معلومات",
                     JOptionPane.INFORMATION_MESSAGE);
+
             return;
         }
 
@@ -772,12 +778,12 @@ public class InstallmentCusomers extends javax.swing.JFrame {
             st.setString(2, tfCustomerAddress.getText());
             st.setString(3, tfCustomerPhoneNumber.getText());
             st.setString(4, tfCustomerID.getText());
-            st.setString(5, tfProductCode.getText());
-            st.setString(6, productName);
+            st.setString(5, productsCode);
+            st.setString(6, productsName.getText());
 
-            st.setString(7, productTotalPrice);
-            st.setString(8, String.valueOf(front));
-            st.setString(9, String.valueOf(totalPrice));
+            st.setDouble(7, finalPrice);
+            st.setDouble(8, front);
+            st.setDouble(9, remainingPrice);
 
             String formatedDate = formatDate(new Date());
             st.setString(10, formatedDate);
@@ -791,50 +797,31 @@ public class InstallmentCusomers extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-        // update product count number
-        try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tailor", "root", "root");
-            System.out.println("Connected Done !");
-            PreparedStatement st = con.prepareStatement("update product set count =? where code=?;");
-
-            int c = Integer.parseInt(count) - 1;
-
-            st.setString(1, String.valueOf(c));
-            st.setString(2, tfProductCode.getText());
-
-            st.execute();
-            con.close();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-
         refresh();
-
         // insert and refresh installments
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tailor", "root", "root");
             System.out.println("Connected Done !");
-            PreparedStatement st = con.prepareStatement("insert into installments (name, productName, productCode, installment )  values(?,?,?,?);");
+            PreparedStatement st = con.prepareStatement("insert into installments (name, productName, productCode, installment, date, time)  values(?,?,?,?,?,?);");
 
             st.setString(1, tfCustomerName.getText());
-            st.setString(2, productName);
-            st.setString(3, tfProductCode.getText());
+            st.setString(2, productsName.getText());
+            st.setString(3, productsCode);
             st.setString(4, tfProductFront.getText());
 
-            /*
-             String formatedDate = formatDate(new Date());
-             st.setString(5, formatedDate);
+            String formatedDate = formatDate(new Date());
+            st.setString(5, formatedDate);
 
-             String formatedTime = formatTime(new Date());
-             st.setString(6, formatedTime);
-             */
+            String formatedTime = formatTime(new Date());
+            st.setString(6, formatedTime);
+
             st.execute();
             con.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
 
-        refreshInstallments(tfCustomerName.getText(), tfProductCode.getText());
+        refreshInstallments(tfCustomerName.getText(), productsCode);
 
         tfCustomerName.setText("");
         tfCustomerAddress.setText("");
@@ -843,6 +830,13 @@ public class InstallmentCusomers extends javax.swing.JFrame {
         tfProductCode.setText("");
         tfProductFront.setText("");
         tfProductRate.setText("");
+
+        productsName.setText("");
+        jLTotalPrice.setText("");
+
+        totalPrice = 0;
+        productsCode = "";
+
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -961,7 +955,7 @@ public class InstallmentCusomers extends javax.swing.JFrame {
             refreshInstallments(name, productCode);
 
         } catch (NullPointerException e) {
-            System.out.println("null poniter exception");
+            System.out.println("null poniter exception" + e.toString());
         }
 
 
@@ -1048,6 +1042,19 @@ public class InstallmentCusomers extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         try {
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tailor", "root", "root");
+            PreparedStatement st = con.prepareStatement("select * from installmentcustomers ;");
+
+            ResultSet res = st.executeQuery();
+
+           if (!res.first()) {
+                JOptionPane.showMessageDialog(null,
+                        "لا يوجد بيانات",
+                        "معلومات",
+                        JOptionPane.INFORMATION_MESSAGE);
+                return;
+            } 
+
             HSSFWorkbook workbook = new HSSFWorkbook();
             HSSFSheet sheet = workbook.createSheet("List Cutmoers");
 
@@ -1058,11 +1065,16 @@ public class InstallmentCusomers extends javax.swing.JFrame {
             rowHeading.createCell(3).setCellValue("رقم الهاتف");
             rowHeading.createCell(4).setCellValue("رقم البطاقه");
             rowHeading.createCell(5).setCellValue("كود المنتج");
-            rowHeading.createCell(6).setCellValue("سعر المنتج");
-            rowHeading.createCell(7).setCellValue("المبلغ المدفوع");
-            rowHeading.createCell(8).setCellValue("اسم المنتج");
+            rowHeading.createCell(6).setCellValue("اسم المنتج");
+            rowHeading.createCell(7).setCellValue("السعر الكلي");
+            rowHeading.createCell(8).setCellValue("المبلغ المدفوع");
+            rowHeading.createCell(9).setCellValue("المتبقي");
+            rowHeading.createCell(10).setCellValue("التاريخ");
+            rowHeading.createCell(11).setCellValue("الوقت");
 
-            for (int i = 0; i < 8; i++) {
+
+
+            for (int i = 0; i < 11; i++) {
                 CellStyle styleWorkHeading = workbook.createCellStyle();
                 HSSFFont font = workbook.createFont();
                 font.setBold(true);
@@ -1073,49 +1085,55 @@ public class InstallmentCusomers extends javax.swing.JFrame {
                 rowHeading.getCell(i).setCellStyle(styleWorkHeading);
 
             }
+            
+            res.beforeFirst();
+            int row = 1;
+            while (res.next()) {
+                Row r = sheet.createRow(row++);
+                Cell cellID = r.createCell(0);
+                cellID.setCellValue(res.getInt("id"));
 
-            try {
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tailor", "root", "root");
-                PreparedStatement st = con.prepareStatement("select * from cashCustomer ;");
+                Cell cellName = r.createCell(1);
+                cellName.setCellValue(res.getString("name"));
 
-                ResultSet res = st.executeQuery();
-                int row = 1;
-                while (res.next()) {
-                    Row r = sheet.createRow(row++);
-                    Cell cellID = r.createCell(0);
-                    cellID.setCellValue(res.getInt("id"));
+                Cell cellAddress = r.createCell(2);
+                cellAddress.setCellValue(res.getString("address"));
 
-                    Cell cellName = r.createCell(1);
-                    cellName.setCellValue(res.getString("name"));
+                Cell cellPhoneNumber = r.createCell(3);
+                cellPhoneNumber.setCellValue(res.getString("phoneNumber"));
 
-                    Cell cellAddress = r.createCell(2);
-                    cellAddress.setCellValue(res.getString("address"));
+                Cell cellIdNumber = r.createCell(4);
+                cellIdNumber.setCellValue(res.getString("idNumber"));
 
-                    Cell cellPhoneNumber = r.createCell(3);
-                    cellPhoneNumber.setCellValue(res.getString("phoneNumber"));
+                Cell cellProductCode = r.createCell(5);
+                cellProductCode.setCellValue(res.getString("productCode"));
 
-                    Cell cellIdNumber = r.createCell(4);
-                    cellIdNumber.setCellValue(res.getString("idNumber"));
+                Cell cellPrice = r.createCell(6);
+                cellPrice.setCellValue(res.getString("productName"));
 
-                    Cell cellProductCode = r.createCell(5);
-                    cellProductCode.setCellValue(res.getString("productCode"));
+                Cell cellTotalPrice = r.createCell(7);
+                cellTotalPrice.setCellValue(Double.parseDouble(res.getString("totalPrice")));
+                
+                Cell cellCurrentPrice = r.createCell(8);
+                cellCurrentPrice.setCellValue(Double.parseDouble(res.getString("currentPrice")));
 
-                    Cell cellPrice = r.createCell(6);
-                    cellPrice.setCellValue(Double.parseDouble(res.getString("price")));
+                Cell cellRemainingPrice = r.createCell(9);
+                cellRemainingPrice.setCellValue(Double.parseDouble(res.getString("remainingPrice")));
+                
+                Cell cellDate = r.createCell(10);
+                cellDate.setCellValue(res.getString("date"));
+                
+                Cell cellTime = r.createCell(11);
+                cellTime.setCellValue(res.getString("time"));
+               
+                
+            };
+            
+            res.close();
+            con.close();
 
-                    Cell cellTotalPrice = r.createCell(7);
-                    cellTotalPrice.setCellValue(Double.parseDouble(res.getString("totalPrice")));
-
-                    Cell cellProductName = r.createCell(8);
-                    cellProductName.setCellValue(res.getString("productName"));
-                };
-
-                for (int i = 0; i < 8; i++) {
-                    sheet.autoSizeColumn(i);
-                }
-
-            } catch (Exception ex) {
-                ex.printStackTrace();
+            for (int i = 0; i < 11; i++) {
+                sheet.autoSizeColumn(i);
             }
 
             // save to path
@@ -1183,6 +1201,9 @@ public class InstallmentCusomers extends javax.swing.JFrame {
                     res.getString("currentPrice"),
                     res.getString("remainingPrice"),});
             }
+            
+            res.close();
+            con.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1374,6 +1395,96 @@ public class InstallmentCusomers extends javax.swing.JFrame {
         jbBuy.setForeground(Color.black);
     }//GEN-LAST:event_jbBuyMouseExited
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+
+        if (tfProductCode.getText().length() == 0) {
+            JOptionPane.showMessageDialog(null,
+                    "من فضلك ادخل كود المنتج",
+                    "معلومات",
+                    JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        String productName = "";
+        String productPrice = "";
+        String count = "";
+
+        // select product info from the product id 
+        try {
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tailor", "root", "root");
+            PreparedStatement st = con.prepareStatement("select name, price, count from product where code =?");
+            st.setString(1, tfProductCode.getText());
+
+            ResultSet res = st.executeQuery();
+            while (res.next()) {
+                productName = res.getString("name");
+                productPrice = res.getString("price");
+                count = res.getString("count");
+            }
+            
+            res.close();
+            con.close();
+
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+        } finally {
+            if (productName.equals("") || productPrice.equals("") || count.equals("")) {
+                JOptionPane.showMessageDialog(null,
+                        "هذا المنتج غير موجود, تاكد من كود المنتج",
+                        "معلومات",
+                        JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+
+            if (Integer.parseInt(count) == 0) {
+                JOptionPane.showMessageDialog(null,
+                        "هذا المنتج منتهي",
+                        "معلومات",
+                        JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+        }
+
+        // update product count number
+        try {
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tailor", "root", "root");
+            System.out.println("Connected Done !");
+            PreparedStatement st = con.prepareStatement("update product set count =? where code=?;");
+
+            int c = Integer.parseInt(count) - 1;
+
+            st.setString(1, String.valueOf(c));
+            st.setString(2, tfProductCode.getText());
+
+            st.execute();
+            con.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        totalPrice += Double.parseDouble(productPrice);
+        productsName.append(productName + " | ");
+        jLTotalPrice.setText(String.valueOf(totalPrice));
+        productsCode += tfProductCode.getText() + " | ";
+
+        tfProductCode.setText("");
+        
+        
+
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        this.dispose();
+
+        DashBoard frame = new DashBoard();
+        frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }//GEN-LAST:event_jMenu8MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1459,18 +1570,22 @@ public class InstallmentCusomers extends javax.swing.JFrame {
                     res.getString("idNumber"),
                     res.getString("productCode"),
                     res.getString("productName"),
-                    res.getString("totalPrice"),
-                    res.getString("currentPrice"),
-                    res.getString("remainingPrice"),
+                    res.getDouble("totalPrice"),
+                    res.getDouble("currentPrice"),
+                    res.getDouble("remainingPrice"),
                     res.getString("date"),
                     res.getString("time"),});
             }
+            res.close();
             con.close();
 
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
+
+    private double totalPrice;
+    private String productsCode = "";
 
     private JButton save;
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1479,7 +1594,9 @@ public class InstallmentCusomers extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JLabel jLTotalPrice;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1499,6 +1616,7 @@ public class InstallmentCusomers extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
@@ -1507,8 +1625,10 @@ public class InstallmentCusomers extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton jbBuy;
+    private javax.swing.JTextArea productsName;
     private javax.swing.JTable table;
     private javax.swing.JTextField tfCustomerAddress;
     private javax.swing.JTextField tfCustomerID;
@@ -1547,6 +1667,10 @@ public class InstallmentCusomers extends javax.swing.JFrame {
                     res.getString("date"),
                     res.getString("time"),});
             }
+            
+            
+            res.close();
+            con.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }

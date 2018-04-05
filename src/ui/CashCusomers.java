@@ -95,6 +95,7 @@ public class CashCusomers extends javax.swing.JFrame {
         jMProducts = new javax.swing.JMenu();
         jMCashCustomers = new javax.swing.JMenu();
         jMInstCustomers = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -153,6 +154,7 @@ public class CashCusomers extends javax.swing.JFrame {
             }
         });
         table.setGridColor(new java.awt.Color(255, 255, 255));
+        table.setRowHeight(25);
         table.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableMouseClicked(evt);
@@ -472,6 +474,15 @@ public class CashCusomers extends javax.swing.JFrame {
         });
         jMenuBar3.add(jMInstCustomers);
 
+        jMenu4.setText("اخر الاحصائيات");
+        jMenu4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu4MouseClicked(evt);
+            }
+        });
+        jMenuBar3.add(jMenu4);
+
         setJMenuBar(jMenuBar3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -563,6 +574,9 @@ public class CashCusomers extends javax.swing.JFrame {
                 count = res.getString("count");
             }
 
+            
+            res.close();
+            con.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
@@ -792,6 +806,19 @@ public class CashCusomers extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         try {
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tailor", "root", "root");
+            PreparedStatement st = con.prepareStatement("select * from cashCustomer ;");
+
+            ResultSet res = st.executeQuery();
+
+            if (!res.first()) {
+                JOptionPane.showMessageDialog(null,
+                        "لا يوجد بيانات",
+                        "معلومات",
+                        JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+
             HSSFWorkbook workbook = new HSSFWorkbook();
             HSSFSheet sheet = workbook.createSheet("List Cutmoers");
 
@@ -817,49 +844,43 @@ public class CashCusomers extends javax.swing.JFrame {
                 rowHeading.getCell(i).setCellStyle(styleWorkHeading);
 
             }
+            
+            res.beforeFirst();
+            int row = 1;
+            while (res.next()) {
+                Row r = sheet.createRow(row++);
+                Cell cellID = r.createCell(0);
+                cellID.setCellValue(res.getInt("id"));
 
-            try {
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tailor", "root", "root");
-                PreparedStatement st = con.prepareStatement("select * from cashCustomer ;");
+                Cell cellName = r.createCell(1);
+                cellName.setCellValue(res.getString("name"));
 
-                ResultSet res = st.executeQuery();
-                int row = 1;
-                while (res.next()) {
-                    Row r = sheet.createRow(row++);
-                    Cell cellID = r.createCell(0);
-                    cellID.setCellValue(res.getInt("id"));
+                Cell cellAddress = r.createCell(2);
+                cellAddress.setCellValue(res.getString("address"));
 
-                    Cell cellName = r.createCell(1);
-                    cellName.setCellValue(res.getString("name"));
+                Cell cellPhoneNumber = r.createCell(3);
+                cellPhoneNumber.setCellValue(res.getString("phoneNumber"));
 
-                    Cell cellAddress = r.createCell(2);
-                    cellAddress.setCellValue(res.getString("address"));
+                Cell cellIdNumber = r.createCell(4);
+                cellIdNumber.setCellValue(res.getString("idNumber"));
 
-                    Cell cellPhoneNumber = r.createCell(3);
-                    cellPhoneNumber.setCellValue(res.getString("phoneNumber"));
+                Cell cellProductCode = r.createCell(5);
+                cellProductCode.setCellValue(res.getString("productCode"));
 
-                    Cell cellIdNumber = r.createCell(4);
-                    cellIdNumber.setCellValue(res.getString("idNumber"));
+                Cell cellPrice = r.createCell(6);
+                cellPrice.setCellValue(Float.parseFloat(res.getString("price")));
 
-                    Cell cellProductCode = r.createCell(5);
-                    cellProductCode.setCellValue(res.getString("productCode"));
+                Cell cellTotalPrice = r.createCell(7);
+                cellTotalPrice.setCellValue(Float.parseFloat(res.getString("totalPrice")));
 
-                    Cell cellPrice = r.createCell(6);
-                    cellPrice.setCellValue(Float.parseFloat(res.getString("price")));
-
-                    Cell cellTotalPrice = r.createCell(7);
-                    cellTotalPrice.setCellValue(Float.parseFloat(res.getString("totalPrice")));
-
-                    Cell cellProductName = r.createCell(8);
-                    cellProductName.setCellValue(res.getString("productName"));
-                };
-
-                for (int i = 0; i < 8; i++) {
-                    sheet.autoSizeColumn(i);
-                }
-
-            } catch (Exception ex) {
-                ex.printStackTrace();
+                Cell cellProductName = r.createCell(8);
+                cellProductName.setCellValue(res.getString("productName"));
+            };
+            
+            res.close();
+            con.close();
+            for (int i = 0; i < 8; i++) {
+                sheet.autoSizeColumn(i);
             }
 
             // save to path
@@ -905,7 +926,7 @@ public class CashCusomers extends javax.swing.JFrame {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tailor", "root", "root");
             String query = "select * from cashCustomer where name like ?";
             PreparedStatement st = con.prepareStatement(query);
-            st.setString(1, tfSearch1.getText() + "%");
+            st.setString(1, "%" + tfSearch1.getText() + "%");
             DefaultTableModel model = new DefaultTableModel();
             table.setModel(model);
             JTableHeader header = table.getTableHeader();
@@ -926,6 +947,9 @@ public class CashCusomers extends javax.swing.JFrame {
                     res.getString("totalPrice"),
                     res.getString("productName"),});
             }
+            
+            res.close();
+            con.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1032,6 +1056,17 @@ public class CashCusomers extends javax.swing.JFrame {
         btExit.setForeground(Color.black);
     }//GEN-LAST:event_btExitMouseExited
 
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        this.dispose();
+
+        DashBoard frame = new DashBoard();
+        frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }//GEN-LAST:event_jMenu4MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1120,6 +1155,9 @@ public class CashCusomers extends javax.swing.JFrame {
                     res.getString("date"),
                     res.getString("time"),});
             }
+                        
+            res.close();
+            con.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -1146,6 +1184,7 @@ public class CashCusomers extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar3;

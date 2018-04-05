@@ -96,6 +96,7 @@ public class Products extends javax.swing.JFrame {
         jMProducts = new javax.swing.JMenu();
         jMCashCustomers = new javax.swing.JMenu();
         jMInstCustomers = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -112,7 +113,7 @@ public class Products extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        table.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        table.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -122,6 +123,7 @@ public class Products extends javax.swing.JFrame {
             }
         ));
         table.setGridColor(new java.awt.Color(255, 255, 255));
+        table.setRowHeight(25);
         table.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableMouseClicked(evt);
@@ -379,6 +381,15 @@ public class Products extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMInstCustomers);
 
+        jMenu4.setText("اخر الاحصائيات");
+        jMenu4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu4MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu4);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -417,7 +428,7 @@ public class Products extends javax.swing.JFrame {
 
         try {
             Double.parseDouble(tfProductPrice.getText());
-            Double.parseDouble(tfProductCount.getText());
+            Integer.parseInt(tfProductCount.getText());
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,
@@ -436,7 +447,7 @@ public class Products extends javax.swing.JFrame {
             st.setString(1, tfProductName.getText());
             st.setString(2, tfProductCode.getText());
             st.setString(3, tfProductPrice.getText());
-            st.setString(4, tfProductCount.getText());
+            st.setInt(4, Integer.parseInt(tfProductCount.getText()));
 
             String formatedDate = formatDate(new Date());
             st.setString(5, formatedDate);
@@ -447,7 +458,14 @@ public class Products extends javax.swing.JFrame {
             st.execute();
             con.close();
         } catch (Exception ex) {
-            ex.printStackTrace();
+            
+            System.out.println(ex.toString());
+            JOptionPane.showMessageDialog(null,
+                    "تاكد من عدم وجوج هذا الكود",
+                    "معلومات",
+                    JOptionPane.INFORMATION_MESSAGE);
+
+            return;
         }
 
         tfProductName.setText("");
@@ -550,7 +568,7 @@ public class Products extends javax.swing.JFrame {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tailor", "root", "root");
             String query = "select * from product where name like ?";
             PreparedStatement st = con.prepareStatement(query);
-            st.setString(1, tfSearch.getText() + "%");
+            st.setString(1, "%" + tfSearch.getText() + "%");
             DefaultTableModel model = new DefaultTableModel();
             table.setModel(model);
             JTableHeader header = table.getTableHeader();
@@ -571,7 +589,11 @@ public class Products extends javax.swing.JFrame {
                     res.getString("time")
 
                 });
+               
             }
+            
+            res.close();
+            con.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -585,6 +607,21 @@ public class Products extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         try {
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tailor", "root", "root");
+            PreparedStatement st = con.prepareStatement("select * from product ;");
+
+            ResultSet res = st.executeQuery();
+
+            if (!res.first()) {
+                JOptionPane.showMessageDialog(null,
+                        "لا يوجد بيانات",
+                        "معلومات",
+                        JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            
+           
+
             HSSFWorkbook workbook = new HSSFWorkbook();
             HSSFSheet sheet = workbook.createSheet("List Producs");
 
@@ -609,43 +646,37 @@ public class Products extends javax.swing.JFrame {
 
             }
 
-            try {
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tailor", "root", "root");
-                PreparedStatement st = con.prepareStatement("select * from product ;");
+            res.beforeFirst();
+            int row = 1;
+            while (res.next()) {
+                Row r = sheet.createRow(row++);
+                Cell cellID = r.createCell(0);
+                cellID.setCellValue(res.getInt("idProduct"));
 
-                ResultSet res = st.executeQuery();
-                int row = 1;
-                while (res.next()) {
-                    Row r = sheet.createRow(row++);
-                    Cell cellID = r.createCell(0);
-                    cellID.setCellValue(res.getInt("idProduct"));
+                Cell cellName = r.createCell(1);
+                cellName.setCellValue(res.getString("name"));
 
-                    Cell cellName = r.createCell(1);
-                    cellName.setCellValue(res.getString("name"));
+                Cell cellCode = r.createCell(2);
+                cellCode.setCellValue(res.getString("code"));
 
-                    Cell cellCode = r.createCell(2);
-                    cellCode.setCellValue(res.getString("code"));
+                Cell cellPrice = r.createCell(3);
+                cellPrice.setCellValue(Double.parseDouble(res.getString("price")));
 
-                    Cell cellPrice = r.createCell(3);
-                    cellPrice.setCellValue(Double.parseDouble(res.getString("price")));
+                Cell cellCount = r.createCell(4);
+                cellCount.setCellValue(Integer.parseInt(res.getString("count")));
 
-                    Cell cellCount = r.createCell(4);
-                    cellCount.setCellValue(Integer.parseInt(res.getString("count")));
+                Cell cellDate = r.createCell(5);
+                cellDate.setCellValue(res.getString("date"));
 
-                    Cell cellDate = r.createCell(5);
-                    cellDate.setCellValue(res.getString("date"));
+                Cell cellTime = r.createCell(6);
+                cellTime.setCellValue(res.getString("time"));
 
-                    Cell cellTime = r.createCell(6);
-                    cellTime.setCellValue(res.getString("time"));
+            };
 
-                };
-
-                for (int i = 0; i < 7; i++) {
-                    sheet.autoSizeColumn(i);
-                }
-
-            } catch (Exception ex) {
-                ex.printStackTrace();
+            res.close();
+            con.close();
+            for (int i = 0; i < 7; i++) {
+                sheet.autoSizeColumn(i);
             }
 
             // save to path
@@ -739,14 +770,25 @@ public class Products extends javax.swing.JFrame {
 
     private void jMenu1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseEntered
         // TODO add your handling code here:
-     //jMenu1.setForeground(Color.BLUE);   
+        //jMenu1.setForeground(Color.BLUE);   
 
     }//GEN-LAST:event_jMenu1MouseEntered
 
     private void jMenu1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseExited
         // TODO add your handling code here:
-      //  jMenu1.setBackground(Color.white);
+        //  jMenu1.setBackground(Color.white);
     }//GEN-LAST:event_jMenu1MouseExited
+
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        this.dispose();
+
+        DashBoard frame = new DashBoard();
+        frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }//GEN-LAST:event_jMenu4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -829,12 +871,15 @@ public class Products extends javax.swing.JFrame {
                     res.getString("name"),
                     res.getString("code"),
                     res.getString("price"),
-                    res.getString("count"),
+                    res.getInt("count"),
                     res.getString("date"),
                     res.getString("time")
 
                 });
             }
+            
+            res.close();
+            con.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -858,6 +903,7 @@ public class Products extends javax.swing.JFrame {
     private javax.swing.JMenu jMInstCustomers;
     private javax.swing.JMenu jMProducts;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
