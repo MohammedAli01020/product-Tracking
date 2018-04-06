@@ -16,7 +16,7 @@ public class MainWindow {
 
         SplashScreen splashScreen = new SplashScreen();
         splashScreen.setVisible(true);
-        
+
         Login login = new Login();
         login.setExtendedState(login.getExtendedState() | JFrame.MAXIMIZED_BOTH);
         login.setLocationRelativeTo(null);

@@ -119,7 +119,7 @@ public class Products extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
             }
         ));
         table.setGridColor(new java.awt.Color(255, 255, 255));
@@ -439,7 +439,7 @@ public class Products extends javax.swing.JFrame {
             return;
         }
 
-        try {
+        try {  
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tailor", "root", "root");
             System.out.println("Connected Done !");
             PreparedStatement st = con.prepareStatement("insert into product (name, code, price, count, date, time) values(?,?,?,?,?,?);");
@@ -492,6 +492,12 @@ public class Products extends javax.swing.JFrame {
             id = model1.getValueAt(index, 0).toString();
         } catch (ArrayIndexOutOfBoundsException ex) {
             System.out.println("array bound exception");
+                         JOptionPane.showMessageDialog(null,
+                    "يجب اختيار منتج اولا من الجدول",
+                    "معلومات",
+                    JOptionPane.INFORMATION_MESSAGE);
+
+            return;
         }
 
         if (id != null) {

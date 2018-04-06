@@ -854,6 +854,12 @@ public class InstallmentCusomers extends javax.swing.JFrame {
             id = model1.getValueAt(index, 0).toString();
         } catch (ArrayIndexOutOfBoundsException ex) {
             System.out.println("array bound exception");
+             JOptionPane.showMessageDialog(null,
+                    "يجب اختيار عميل اولا من الجدول",
+                    "معلومات",
+                    JOptionPane.INFORMATION_MESSAGE);
+
+            return;
         }
 
         if (id != null) {
